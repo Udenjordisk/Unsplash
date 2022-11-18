@@ -1,16 +1,20 @@
 PODS:
+  - CollectionViewWaterfallLayout (0.5.0)
   - SwiftLint (0.49.1)
 
 DEPENDENCIES:
+  - CollectionViewWaterfallLayout
   - SwiftLint
 
 SPEC REPOS:
   trunk:
+    - CollectionViewWaterfallLayout
     - SwiftLint
 
 SPEC CHECKSUMS:
+  CollectionViewWaterfallLayout: 4399ba01be265fff4da1ed1d607130fe009780e4
   SwiftLint: 32ee33ded0636d0905ef6911b2b67bbaeeedafa5
 
-PODFILE CHECKSUM: 0670e8a56f63ea6d09996640ee688c379d02b09d
+PODFILE CHECKSUM: 3896ea8da7570cbb8df6dc970361614564d1daba
 
 COCOAPODS: 1.11.3

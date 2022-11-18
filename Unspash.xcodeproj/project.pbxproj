@@ -170,6 +170,7 @@
 				500DDA422927FB7E0057FB75 /* Frameworks */,
 				500DDA432927FB7E0057FB75 /* Resources */,
 				504887632928067200D4AB56 /* ShellScript */,
+				021DD63913F575F27262DB33 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -226,6 +227,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		021DD63913F575F27262DB33 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Unspash/Pods-Unspash-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Unspash/Pods-Unspash-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Unspash/Pods-Unspash-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		504887632928067200D4AB56 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

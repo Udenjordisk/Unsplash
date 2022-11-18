@@ -8,5 +8,6 @@ target 'Unspash' do
   # Pods for Unspash
 
 pod 'SwiftLint'
+pod "CollectionViewWaterfallLayout"
 
 end
