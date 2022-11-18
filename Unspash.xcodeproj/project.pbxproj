@@ -25,7 +25,6 @@
 		505EE8362928046A005B0DC0 /* FavoriteInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505EE8312928046A005B0DC0 /* FavoriteInteractor.swift */; };
 		50BFE44929281CF000ABD125 /* MainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BFE44829281CF000ABD125 /* MainCell.swift */; };
 		50BFE44C292822E800ABD125 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BFE44B292822E800ABD125 /* APIService.swift */; };
-		50BFE44E2928239A00ABD125 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BFE44D2928239A00ABD125 /* APIKey.swift */; };
 		50BFE4502928258B00ABD125 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BFE44F2928258B00ABD125 /* DataModel.swift */; };
 		50BFE45429282FCC00ABD125 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 50BFE45329282FCC00ABD125 /* .swiftlint.yml */; };
 /* End PBXBuildFile section */
@@ -51,7 +50,6 @@
 		505EE8312928046A005B0DC0 /* FavoriteInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteInteractor.swift; sourceTree = "<group>"; };
 		50BFE44829281CF000ABD125 /* MainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCell.swift; sourceTree = "<group>"; };
 		50BFE44B292822E800ABD125 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
-		50BFE44D2928239A00ABD125 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		50BFE44F2928258B00ABD125 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		50BFE45329282FCC00ABD125 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		9FD50BE8B8E222DC07F56AD0 /* Pods_Unspash.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Unspash.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -167,7 +165,6 @@
 			isa = PBXGroup;
 			children = (
 				50BFE44B292822E800ABD125 /* APIService.swift */,
-				50BFE44D2928239A00ABD125 /* APIKey.swift */,
 				50BFE44F2928258B00ABD125 /* DataModel.swift */,
 			);
 			path = Service;
@@ -324,7 +321,6 @@
 				500DDA4D2927FB7E0057FB75 /* TabBarController.swift in Sources */,
 				505EE8322928046A005B0DC0 /* FavoriteContract.swift in Sources */,
 				500DDA492927FB7E0057FB75 /* AppDelegate.swift in Sources */,
-				50BFE44E2928239A00ABD125 /* APIKey.swift in Sources */,
 				50BFE44929281CF000ABD125 /* MainCell.swift in Sources */,
 				500DDA4B2927FB7E0057FB75 /* SceneDelegate.swift in Sources */,
 				505EE82A29280453005B0DC0 /* MainRouter.swift in Sources */,

@@ -54,7 +54,6 @@ extension MainViewController: PresenterToViewMainProtocol {
         self.models = models
         DispatchQueue.main.async {
             self.collectionView.reloadData()
-            //TODO: проверить сколько раз обновляется коллекция и параллельно ли загружаются картинки
         }
     }
 
