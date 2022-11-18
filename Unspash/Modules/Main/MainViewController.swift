@@ -14,7 +14,7 @@ class MainViewController: UIViewController {
     // MARK: - Properties
     var presenter: ViewToPresenterMainProtocol?
     var models: [DataModel] = []
-    
+
     // Collection view properties
     let collectionView: UICollectionView = {
 
@@ -34,7 +34,7 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
 
         presenter?.viewDidLoaded()
-        
+
         view.addSubview(collectionView)
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -49,13 +49,15 @@ class MainViewController: UIViewController {
 
 }
 extension MainViewController: PresenterToViewMainProtocol {
-    
+
     func reloadCollection(_ models: [DataModel]) {
         self.models = models
-        self.collectionView.reloadData()
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+            //TODO: проверить сколько раз обновляется коллекция и параллельно ли загружаются картинки
+        }
     }
-    
-   
+
 }
 
 extension MainViewController: UICollectionViewDataSource, UICollectionViewDelegate {
@@ -68,9 +70,9 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionViewCell", for: indexPath) as! CollectionViewCell
-        
+
         cell.configure(models[indexPath.row])
-        
+
         return cell
 
     }

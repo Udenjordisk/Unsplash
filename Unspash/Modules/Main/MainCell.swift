@@ -8,21 +8,13 @@
 import UIKit
 import SDWebImage
 
-protocol ConfigurableCell {
-    func configure(_ model: DataModel)
-}
-
 class CollectionViewCell: UICollectionViewCell {
 
-    //MARK: - Properties
+    // MARK: - Properties
+
     static let identifier = "CollectionViewCell"
 
     lazy var imageView = UIImageView()
-//        let imageView = UIImageView()
-//        imageView.contentMode = .scaleAspectFill
-//        imageView.image = UIImage(systemName: "heart")
-//        return imageView
-//    }()
 
     // MARK: - Initialization
     override init(frame: CGRect) {
@@ -50,10 +42,11 @@ class CollectionViewCell: UICollectionViewCell {
 }
 
 extension CollectionViewCell: ConfigurableCell {
-    
+
     func configure(_ model: DataModel) {
-        guard let url = URL(string: model.urls.full) else {return}
-        imageView.sd_setImage(with: url, placeholderImage: UIImage(systemName: "photo"), options: [.progressiveLoad,.continueInBackground])
+
+        guard let url = URL(string: model.urls.small) else {return}
+        imageView.sd_setImage(with: url, placeholderImage: nil, options: [.continueInBackground, .highPriority,.progressiveLoad])
+
     }
 }
-

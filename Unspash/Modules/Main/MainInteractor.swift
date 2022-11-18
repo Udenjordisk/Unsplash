@@ -12,22 +12,13 @@ class MainInteractor: PresenterToInteractorMainProtocol {
 
     // MARK: Properties
     var presenter: InteractorToPresenterMainProtocol?
-    
+
     final func getData() {
-        APIService.shared.fetch(dataType: [DataModel].self, from: nil) { result in
-            
-                    switch result {
-                        
-                    case .success(let models):
-                        print(models)
-                        self.presenter?.dataDidLoaded(models)
-                        return
-                        
-                    case .failure(let error):
-                        print(error.localizedDescription)
-                    }
-            
-                }
+        Task {
+            await APIService.shared.getUnsplashData { models in
+                self.presenter?.dataDidLoaded(models)
             }
-    
+        }
+    }
+
 }

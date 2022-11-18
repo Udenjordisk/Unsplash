@@ -14,21 +14,20 @@ class MainPresenter: ViewToPresenterMainProtocol {
     var view: PresenterToViewMainProtocol?
     var interactor: PresenterToInteractorMainProtocol?
     var router: PresenterToRouterMainProtocol?
-    
+
     func viewDidLoaded() {
-        interactor?.getData()
-    
+         interactor?.getData()
+
     }
-    
+
 }
 
 extension MainPresenter: InteractorToPresenterMainProtocol {
-    
+
     func dataDidLoaded(_ model: [DataModel]) {
-    
+
         view?.reloadCollection(model)
-        
+
     }
-    
 
 }

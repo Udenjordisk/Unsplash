@@ -16,35 +16,38 @@ enum Errors: Error {
 class APIService {
 
     static let shared = APIService()
-    
-    func fetch<T: Codable>(dataType: T.Type,
-                           from searchTerm: String?,
-                           completion: @escaping(Result<T, Errors>) -> Void) {
 
-        let parameters = self.getParameters(searchTerm: searchTerm)
+    func getUnsplashData(completion: @escaping ([DataModel]) -> Void) async {
+        let fetchResponse: [DataModel]? = await fetchIt()
+        if let theResponse = fetchResponse {
+           completion(theResponse)
+        }
+
+    }
+
+    func fetchIt<T: Decodable>() async -> T? {
+
+        let parameters = self.getParameters(searchTerm: "")
         let url = self.urlCreator(parameters: parameters)
         var request = URLRequest(url: url)
 
         request.allHTTPHeaderFields = ["Authorization": "Client-ID \(ApiKey.apiAccessKey)"]
         request.httpMethod = "get"
 
-        URLSession.shared.dataTask(with: request) {data, _, _ in
-            guard let data = data else {
-                completion(.failure(.noData))
-                return
+        do {
+            let (data, response) = try await URLSession.shared.data(for: request)
+
+            guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
+                 throw URLError(.badServerResponse)   //  todo
             }
-            do {
-                let decoder = JSONDecoder()
-                let model = try decoder.decode(T.self, from: data)
-                DispatchQueue.main.async {
-                    completion(.success(model))
+            let results = try JSONDecoder().decode(T.self, from: data)
+            return results
+        } catch {
+            return nil
+        }
 
-                }} catch {
-                    completion(.failure(.decodingError.self))
-                }
-
-        }.resume()
     }
+
     // TODO: переименовать креэйторы
     // MARK: - Parameters creator
     func getParameters(searchTerm: String?) -> [String: String] {

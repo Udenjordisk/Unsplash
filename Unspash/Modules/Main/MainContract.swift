@@ -40,3 +40,8 @@ protocol InteractorToPresenterMainProtocol {
 protocol PresenterToRouterMainProtocol {
 
 }
+
+// MARK: Cell configurable
+protocol ConfigurableCell {
+    func configure(_ model: DataModel)
+}
