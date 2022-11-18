@@ -32,9 +32,10 @@ class MainViewController: UIViewController {
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
-                view.addSubview(collectionView)
 
+        presenter?.viewDidLoaded()
+        
+        view.addSubview(collectionView)
         collectionView.delegate = self
         collectionView.dataSource = self
     }
@@ -46,19 +47,10 @@ class MainViewController: UIViewController {
 
     }
 
-    // MARK: - UI Methods
-    private final func setupUI() {
-        view.backgroundColor = .white
-    }
-
 }
 extension MainViewController: PresenterToViewMainProtocol {
     // TODO: Implement View Output Methods
 }
-
-// extension MainViewController: UICollectionViewDelegate {
-//
-// }
 
 extension MainViewController: UICollectionViewDataSource, UICollectionViewDelegate {
 
@@ -66,17 +58,23 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
         10
     }
 
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView,
+                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionViewCell", for: indexPath)
-
+        // TODO: Конфигурация ячейки
         return cell
 
     }
 
 }
+    // TODO: Избавиться от magic numbers
 extension MainViewController: CollectionViewWaterfallLayoutDelegate {
-    func collectionView(_ collectionView: UICollectionView, layout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+
+    func collectionView(_ collectionView: UICollectionView,
+                        layout: UICollectionViewLayout,
+                        sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+
         return CGSize(width: view.frame.size.width / 2, height: CGFloat.random(in: 250...400))
 
     }

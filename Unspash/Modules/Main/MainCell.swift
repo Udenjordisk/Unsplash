@@ -9,6 +9,8 @@ import UIKit
 
 class CollectionViewCell: UICollectionViewCell {
 
+    //MARK: - Properties
+    
     static let identifier = "CollectionViewCell"
 
     var photoImageView: UIImageView = {
@@ -18,6 +20,8 @@ class CollectionViewCell: UICollectionViewCell {
         return imageView
     }()
 
+    // MARK: - Initialization
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         contentView.addSubview(photoImageView)
@@ -28,6 +32,8 @@ class CollectionViewCell: UICollectionViewCell {
         fatalError()
     }
 
+    // MARK: - Override methods
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         photoImageView.frame = contentView.bounds

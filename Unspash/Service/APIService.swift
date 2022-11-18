@@ -1,0 +1,70 @@
+//
+//  APIService.swift
+//  Unspash
+//
+//  Created by Кирилл on 19.11.2022.
+//
+
+import UIKit
+
+enum Errors: Error {
+    case invalidURL
+    case noData
+    case decodingError
+}
+
+class APIService {
+
+    static let shared = APIService()
+    
+    func fetch<T: Codable>(dataType: T.Type,
+                           from searchTerm: String?,
+                           completion: @escaping(Result<T, Errors>) -> Void) {
+
+        let parameters = self.getParameters(searchTerm: searchTerm)
+        let url = self.urlCreator(parameters: parameters)
+        var request = URLRequest(url: url)
+
+        request.allHTTPHeaderFields = ["Authorization": "Client-ID \(ApiKey.apiAccessKey)"]
+        request.httpMethod = "get"
+
+        URLSession.shared.dataTask(with: request) {data, _, _ in
+            guard let data = data else {
+                completion(.failure(.noData))
+                return
+            }
+            do {
+                let decoder = JSONDecoder()
+                let model = try decoder.decode(T.self, from: data)
+                DispatchQueue.main.async {
+                    completion(.success(model))
+
+                }} catch {
+                    completion(.failure(.decodingError.self))
+                }
+
+        }.resume()
+    }
+    // TODO: переименовать креэйторы
+    // MARK: - Parameters creator
+    func getParameters(searchTerm: String?) -> [String: String] {
+        var parameters = [String: String]()
+
+        parameters["query"] = searchTerm ?? ""
+        parameters["count"] = String(30)
+
+        return parameters
+    }
+
+    // MARK: - URL creator
+    func urlCreator(parameters: [String: String]) -> URL {
+        var components = URLComponents()
+        components.scheme = "https"
+        components.host = "api.unsplash.com"
+        components.path = "/photos/random"
+        components.queryItems = parameters.map {URLQueryItem(name: $0, value: $1)}
+
+        return components.url!
+    }
+
+}

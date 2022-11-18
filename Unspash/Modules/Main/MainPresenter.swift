@@ -14,6 +14,11 @@ class MainPresenter: ViewToPresenterMainProtocol {
     var view: PresenterToViewMainProtocol?
     var interactor: PresenterToInteractorMainProtocol?
     var router: PresenterToRouterMainProtocol?
+    
+    func viewDidLoaded() {
+        interactor?.getData()
+    }
+    
 }
 
 extension MainPresenter: InteractorToPresenterMainProtocol {
