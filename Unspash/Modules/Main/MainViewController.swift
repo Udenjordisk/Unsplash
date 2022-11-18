@@ -9,7 +9,7 @@
 import UIKit
 
 class MainViewController: UIViewController {
-    
+
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,9 +17,9 @@ class MainViewController: UIViewController {
 
     // MARK: - Properties
     var presenter: ViewToPresenterMainProtocol?
-    
+
 }
 
-extension MainViewController: PresenterToViewMainProtocol{
+extension MainViewController: PresenterToViewMainProtocol {
     // TODO: Implement View Output Methods
 }

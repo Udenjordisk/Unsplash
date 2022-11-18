@@ -1,0 +1,6 @@
+framework module Pods_Unspash {
+  umbrella header "Pods-Unspash-umbrella.h"
+
+  export *
+  module * { export * }
+}

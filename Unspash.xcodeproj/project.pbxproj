@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F7F87083E2DCAA60D4C19AC /* Pods_Unspash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FD50BE8B8E222DC07F56AD0 /* Pods_Unspash.framework */; };
 		500DDA492927FB7E0057FB75 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500DDA482927FB7E0057FB75 /* AppDelegate.swift */; };
 		500DDA4B2927FB7E0057FB75 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500DDA4A2927FB7E0057FB75 /* SceneDelegate.swift */; };
 		500DDA4D2927FB7E0057FB75 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500DDA4C2927FB7E0057FB75 /* TabBarController.swift */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0B99F9BBE1A5606E9E9BAD14 /* Pods-Unspash.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Unspash.release.xcconfig"; path = "Target Support Files/Pods-Unspash/Pods-Unspash.release.xcconfig"; sourceTree = "<group>"; };
 		500DDA452927FB7E0057FB75 /* Unspash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Unspash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		500DDA482927FB7E0057FB75 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		500DDA4A2927FB7E0057FB75 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -42,6 +44,8 @@
 		505EE82F2928046A005B0DC0 /* FavoriteRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRouter.swift; sourceTree = "<group>"; };
 		505EE8302928046A005B0DC0 /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		505EE8312928046A005B0DC0 /* FavoriteInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteInteractor.swift; sourceTree = "<group>"; };
+		9FD50BE8B8E222DC07F56AD0 /* Pods_Unspash.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Unspash.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E0F4AC0387C22358CCE3D1BC /* Pods-Unspash.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Unspash.debug.xcconfig"; path = "Target Support Files/Pods-Unspash/Pods-Unspash.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,17 +53,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F7F87083E2DCAA60D4C19AC /* Pods_Unspash.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		133ACC3E96DC7545E9BE1466 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E0F4AC0387C22358CCE3D1BC /* Pods-Unspash.debug.xcconfig */,
+				0B99F9BBE1A5606E9E9BAD14 /* Pods-Unspash.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		500DDA3C2927FB7E0057FB75 = {
 			isa = PBXGroup;
 			children = (
 				500DDA472927FB7E0057FB75 /* Unspash */,
 				500DDA462927FB7E0057FB75 /* Products */,
+				133ACC3E96DC7545E9BE1466 /* Pods */,
+				86A6D48650A7C296996CFAC4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -134,6 +150,14 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
+		86A6D48650A7C296996CFAC4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9FD50BE8B8E222DC07F56AD0 /* Pods_Unspash.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -141,9 +165,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 500DDA592927FB800057FB75 /* Build configuration list for PBXNativeTarget "Unspash" */;
 			buildPhases = (
+				A0E4CDD84F15509E19555E33 /* [CP] Check Pods Manifest.lock */,
 				500DDA412927FB7E0057FB75 /* Sources */,
 				500DDA422927FB7E0057FB75 /* Frameworks */,
 				500DDA432927FB7E0057FB75 /* Resources */,
+				504887632928067200D4AB56 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -198,6 +224,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		504887632928067200D4AB56 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "SWIFT_LINT=/usr/local/bin/swiftlint\n\nif [[ -e \"${SWIFT_LINT}\" ]]; then\n    echo \"[I] Found SwiftLint at ${SWIFT_LINT}\"\nelse\n    echo \"[!] Local SwiftLint not found at ${SWIFT_LINT}\"\n    export SWIFT_LINT=${PWD}/Pods/SwiftLint/swiftlint\n    echo \"[I] Try to using SwiftLint from cocoapods at ${SWIFT_LINT}\"\nfi\n\nif [[ ! -e \"${SWIFT_LINT}\" ]]; then\n    echo \"[!] SwifLint is not installed.\"\n    echo \"[!] Expected location is '${SWIFT_LINT}'\"\n    echo \"[!] Please install it. eg. 'brew install swiftlint'\"\n    exit 1\nfi\n\necho \"[I] SwiftLint version: $(${SWIFT_LINT} version)\"\n\ngit ls-files --other --modified --exclude-standard -- \"*.swift\" | while read filename; do\n    $SWIFT_LINT lint --path \"$filename\";\n    $SWIFT_LINT autocorrect --path \"$filename\";\ndone\n";
+		};
+		A0E4CDD84F15509E19555E33 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Unspash-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		500DDA412927FB7E0057FB75 /* Sources */ = {
@@ -350,6 +418,7 @@
 		};
 		500DDA5A2927FB800057FB75 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E0F4AC0387C22358CCE3D1BC /* Pods-Unspash.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -377,6 +446,7 @@
 		};
 		500DDA5B2927FB800057FB75 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0B99F9BBE1A5606E9E9BAD14 /* Pods-Unspash.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

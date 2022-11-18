@@ -9,7 +9,7 @@
 import UIKit
 
 class FavoriteViewController: UIViewController {
-    
+
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,9 +17,9 @@ class FavoriteViewController: UIViewController {
 
     // MARK: - Properties
     var presenter: ViewToPresenterFavoriteProtocol?
-    
+
 }
 
-extension FavoriteViewController: PresenterToViewFavoriteProtocol{
+extension FavoriteViewController: PresenterToViewFavoriteProtocol {
     // TODO: Implement View Output Methods
 }

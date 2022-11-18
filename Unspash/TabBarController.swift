@@ -8,37 +8,39 @@
 import UIKit
 
 class TabBarController: UITabBarController {
-    
+
     // Setup main module
-    
+
     private let main = MainRouter.createModule()
-    private let mainTabBarItem = UITabBarItem(title: "Main", image: UIImage(systemName: "photo.stack"), selectedImage: UIImage(systemName: "photo.stack.fill"))
-     
+    private let mainTabBarItem = UITabBarItem(title: "Main",
+                                              image: UIImage(systemName: "photo.stack"),
+                                              selectedImage: UIImage(systemName: "photo.stack.fill"))
+
     // Setup favorite module
-    
+
     private let favorite = FavoriteRouter.createModule()
-    private let favoriteTabBarItem = UITabBarItem(title: "Favorite", image: UIImage(systemName: "heart.fill"), selectedImage: UIImage(systemName: "heart"))
-         
+    private let favoriteTabBarItem = UITabBarItem(title: "Favorite",
+                                                  image: UIImage(systemName: "heart.fill"),
+                                                  selectedImage: UIImage(systemName: "heart"))
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         setupTabBar()
     }
 
     private final func setupTabBar() {
-        
+
         // Set tab bar items
         main.tabBarItem = mainTabBarItem
         favorite.tabBarItem = favoriteTabBarItem
-        
+
         // Add view controllers to tab bar controller
         self.viewControllers = [main, favorite]
-        
+
         // Customize tab bar
         tabBar.isTranslucent = false
         tabBar.backgroundColor = .white
-        tabBar.unselectedItemTintColor = .black
     }
 
 }
-

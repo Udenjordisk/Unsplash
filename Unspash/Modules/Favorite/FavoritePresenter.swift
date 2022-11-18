@@ -17,5 +17,5 @@ class FavoritePresenter: ViewToPresenterFavoriteProtocol {
 }
 
 extension FavoritePresenter: InteractorToPresenterFavoriteProtocol {
-    
+
 }
