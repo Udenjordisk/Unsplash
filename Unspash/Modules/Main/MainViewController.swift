@@ -84,7 +84,7 @@ extension MainViewController: CollectionViewWaterfallLayoutDelegate {
                         layout: UICollectionViewLayout,
                         sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
 
-        return CGSize(width: view.frame.size.width / Constants.columnCount, height: Constants.heightOfImage)
+        return CGSize(width: view.frame.size.width / Constants.columnCount, height: CGFloat.random(in: 250...400))
 
     }
 

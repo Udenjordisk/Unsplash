@@ -9,7 +9,7 @@ import UIKit
 
 struct DataModel: Codable {
     var id: String
-//    var created_at: String? //CAMAL CASE NEED
+    var created_at: String? 
     var urls: Urls
     var user: User
     var location: Location?

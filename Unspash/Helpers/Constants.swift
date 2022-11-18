@@ -11,7 +11,6 @@ enum Constants {
     
     // Collection view
     static let columnCount: CGFloat = 2
-    static let heightOfImage = CGFloat.random(in: 250...400)
     static let spacing: Float = 10
     
     // Table view
