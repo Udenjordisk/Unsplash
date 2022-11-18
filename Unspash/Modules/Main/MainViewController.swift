@@ -13,9 +13,9 @@ class MainViewController: UIViewController {
 
     // MARK: - Properties
     var presenter: ViewToPresenterMainProtocol?
-
+    var models: [DataModel] = []
+    
     // Collection view properties
-
     let collectionView: UICollectionView = {
 
         let waterfallLayout = CollectionViewWaterfallLayout()
@@ -49,20 +49,28 @@ class MainViewController: UIViewController {
 
 }
 extension MainViewController: PresenterToViewMainProtocol {
-    // TODO: Implement View Output Methods
+    
+    func reloadCollection(_ models: [DataModel]) {
+        self.models = models
+        self.collectionView.reloadData()
+    }
+    
+   
 }
 
 extension MainViewController: UICollectionViewDataSource, UICollectionViewDelegate {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        10
+        models.count
     }
 
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionViewCell", for: indexPath)
-        // TODO: Конфигурация ячейки
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionViewCell", for: indexPath) as! CollectionViewCell
+        
+        cell.configure()
+        
         return cell
 
     }

@@ -15,16 +15,19 @@ class MainInteractor: PresenterToInteractorMainProtocol {
     
     final func getData() {
         APIService.shared.fetch(dataType: [DataModel].self, from: nil) { result in
+            
                     switch result {
+                        
                     case .success(let models):
                         print(models)
-//                        self.modelsArray = models
-//                        self.photoCollection.reloadData()
+                        self.presenter?.dataDidLoaded(models)
                         return
+                        
                     case .failure(let error):
                         print(error.localizedDescription)
                     }
+            
                 }
-        
-    }
+            }
+    
 }

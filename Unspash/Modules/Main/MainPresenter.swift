@@ -17,10 +17,18 @@ class MainPresenter: ViewToPresenterMainProtocol {
     
     func viewDidLoaded() {
         interactor?.getData()
+    
     }
     
 }
 
 extension MainPresenter: InteractorToPresenterMainProtocol {
+    
+    func dataDidLoaded(_ model: [DataModel]) {
+    
+        view?.reloadCollection(model)
+        
+    }
+    
 
 }
