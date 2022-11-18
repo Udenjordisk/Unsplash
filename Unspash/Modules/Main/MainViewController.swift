@@ -69,7 +69,7 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
 
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionViewCell", for: indexPath) as! CollectionViewCell
         
-        cell.configure()
+        cell.configure(models[indexPath.row])
         
         return cell
 

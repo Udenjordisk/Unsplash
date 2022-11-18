@@ -6,9 +6,10 @@
 //
 
 import UIKit
+import SDWebImage
 
 protocol ConfigurableCell {
-    func configure()
+    func configure(_ model: DataModel)
 }
 
 class CollectionViewCell: UICollectionViewCell {
@@ -16,17 +17,17 @@ class CollectionViewCell: UICollectionViewCell {
     //MARK: - Properties
     static let identifier = "CollectionViewCell"
 
-    var photoImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFill
-        imageView.image = UIImage(systemName: "heart")
-        return imageView
-    }()
+    lazy var imageView = UIImageView()
+//        let imageView = UIImageView()
+//        imageView.contentMode = .scaleAspectFill
+//        imageView.image = UIImage(systemName: "heart")
+//        return imageView
+//    }()
 
     // MARK: - Initialization
     override init(frame: CGRect) {
         super.init(frame: frame)
-        contentView.addSubview(photoImageView)
+        contentView.addSubview(imageView)
         contentView.clipsToBounds = true
     }
 
@@ -37,19 +38,22 @@ class CollectionViewCell: UICollectionViewCell {
     // MARK: - Override methods
     override func layoutSubviews() {
         super.layoutSubviews()
-        photoImageView.frame = contentView.bounds
+        imageView.frame = contentView.bounds
+        imageView.contentMode = .scaleAspectFill
     }
 
     override func prepareForReuse() {
         super.prepareForReuse()
-        photoImageView.image = nil
+        imageView.image = nil
     }
 
 }
 
 extension CollectionViewCell: ConfigurableCell {
-    func configure() {
-        
+    
+    func configure(_ model: DataModel) {
+        guard let url = URL(string: model.urls.full) else {return}
+        imageView.sd_setImage(with: url, placeholderImage: UIImage(systemName: "photo"), options: [.progressiveLoad,.continueInBackground])
     }
 }
 
