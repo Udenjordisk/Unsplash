@@ -19,9 +19,9 @@ class MainViewController: UIViewController {
     let collectionView: UICollectionView = {
 
         let waterfallLayout = CollectionViewWaterfallLayout()
-        waterfallLayout.columnCount = 2
-        waterfallLayout.minimumColumnSpacing = 10
-        waterfallLayout.minimumInteritemSpacing = 10
+        waterfallLayout.columnCount = Int(Constants.columnCount)
+        waterfallLayout.minimumColumnSpacing = Constants.spacing
+        waterfallLayout.minimumInteritemSpacing = Constants.spacing
 
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: waterfallLayout)
         collectionView.register(CollectionViewCell.self, forCellWithReuseIdentifier: CollectionViewCell.identifier)
@@ -84,7 +84,7 @@ extension MainViewController: CollectionViewWaterfallLayoutDelegate {
                         layout: UICollectionViewLayout,
                         sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
 
-        return CGSize(width: view.frame.size.width / 2, height: CGFloat.random(in: 250...400))
+        return CGSize(width: view.frame.size.width / Constants.columnCount, height: Constants.heightOfImage)
 
     }
 
