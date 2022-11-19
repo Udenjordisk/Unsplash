@@ -13,10 +13,10 @@ class MainViewController: UIViewController {
 
     // MARK: - Properties
     var presenter: ViewToPresenterMainProtocol?
-    var models: [DataModel] = []
+    lazy var models: [DataModel] = []
     var timer: Timer?
-    var searchController: UISearchController?
-    var collectionView: UICollectionView?
+    weak var searchController: UISearchController?
+    weak var collectionView: UICollectionView?
 
     // Collection view properties
 

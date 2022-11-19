@@ -32,8 +32,8 @@ protocol PresenterToInteractorMainProtocol {
 
     var presenter: InteractorToPresenterMainProtocol? { get set }
 
-    func getData()
-    func searchPhoto(_ searchResult: String)
+    func getData(_ searchResult: String?)
+    
 }
 
 // MARK: Interactor Output (Interactor -> Presenter)

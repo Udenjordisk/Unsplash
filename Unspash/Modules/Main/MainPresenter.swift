@@ -40,12 +40,12 @@ class MainPresenter: ViewToPresenterMainProtocol {
         }()
 
     func viewDidLoaded() {
-         interactor?.getData()
+         interactor?.getData(nil)
 
     }
 
     func searchBarDidSearch(_ searchResult: String) {
-        interactor?.searchPhoto(searchResult)
+        interactor?.getData(searchResult)
     }
 
     

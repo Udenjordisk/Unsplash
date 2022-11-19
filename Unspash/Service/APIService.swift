@@ -19,17 +19,17 @@ class APIService {
 
     let apiAccessKey = "8S9Fu2tFnIdja3vHoH2XzXMQu3JbAxTrBqw0k2luTjM"
 
-    func getUnsplashData(completion: @escaping ([DataModel]) -> Void) async {
-        let fetchResponse: [DataModel]? = await fetchIt()
+    func getUnsplashData(_ searchTerm: String?, completion: @escaping ([DataModel]) -> Void) async {
+        searchTerm == nil ? "" : searchTerm
+        let fetchResponse: [DataModel]? = await fetchIt(searchTerm)
         if let theResponse = fetchResponse {
             completion(theResponse)
         }
 
     }
 
-    func fetchIt<T: Decodable>() async -> T? {
-
-        let parameters = self.getParameters(searchTerm: "")
+    func fetchIt<T: Decodable>(_ searchTerm: String?) async -> T? {
+        let parameters = self.getParameters(searchTerm: searchTerm)
         let url = self.getURL(parameters: parameters)
         var request = URLRequest(url: url)
 
