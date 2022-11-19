@@ -24,6 +24,8 @@
 		505EE8342928046A005B0DC0 /* FavoriteRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505EE82F2928046A005B0DC0 /* FavoriteRouter.swift */; };
 		505EE8352928046A005B0DC0 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505EE8302928046A005B0DC0 /* FavoriteViewController.swift */; };
 		505EE8362928046A005B0DC0 /* FavoriteInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505EE8312928046A005B0DC0 /* FavoriteInteractor.swift */; };
+		5083C88C29290AF100DCFCCE /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5083C88B29290AF100DCFCCE /* CollectionView.swift */; };
+		5083C88E29290B2900DCFCCE /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5083C88D29290B2900DCFCCE /* SearchBar.swift */; };
 		50BFE44929281CF000ABD125 /* MainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BFE44829281CF000ABD125 /* MainCell.swift */; };
 		50BFE44C292822E800ABD125 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BFE44B292822E800ABD125 /* APIService.swift */; };
 		50BFE4502928258B00ABD125 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BFE44F2928258B00ABD125 /* DataModel.swift */; };
@@ -50,6 +52,8 @@
 		505EE82F2928046A005B0DC0 /* FavoriteRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRouter.swift; sourceTree = "<group>"; };
 		505EE8302928046A005B0DC0 /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		505EE8312928046A005B0DC0 /* FavoriteInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteInteractor.swift; sourceTree = "<group>"; };
+		5083C88B29290AF100DCFCCE /* CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
+		5083C88D29290B2900DCFCCE /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		50BFE44829281CF000ABD125 /* MainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCell.swift; sourceTree = "<group>"; };
 		50BFE44B292822E800ABD125 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		50BFE44F2928258B00ABD125 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
@@ -101,6 +105,7 @@
 		500DDA472927FB7E0057FB75 /* Unspash */ = {
 			isa = PBXGroup;
 			children = (
+				5083C88A29290ACD00DCFCCE /* Extensions */,
 				50BFE44A292822BC00ABD125 /* Service */,
 				505EE82029280289005B0DC0 /* Modules */,
 				505EE81F29280282005B0DC0 /* Sources */,
@@ -162,6 +167,15 @@
 				505EE82729280453005B0DC0 /* MainInteractor.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		5083C88A29290ACD00DCFCCE /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				5083C88B29290AF100DCFCCE /* CollectionView.swift */,
+				5083C88D29290B2900DCFCCE /* SearchBar.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		50BFE44A292822BC00ABD125 /* Service */ = {
@@ -314,6 +328,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5083C88C29290AF100DCFCCE /* CollectionView.swift in Sources */,
 				505EE8362928046A005B0DC0 /* FavoriteInteractor.swift in Sources */,
 				502722F9292840AA00F1ED50 /* Constants.swift in Sources */,
 				50BFE44C292822E800ABD125 /* APIService.swift in Sources */,
@@ -328,6 +343,7 @@
 				50BFE44929281CF000ABD125 /* MainCell.swift in Sources */,
 				500DDA4B2927FB7E0057FB75 /* SceneDelegate.swift in Sources */,
 				505EE82A29280453005B0DC0 /* MainRouter.swift in Sources */,
+				5083C88E29290B2900DCFCCE /* SearchBar.swift in Sources */,
 				50BFE4502928258B00ABD125 /* DataModel.swift in Sources */,
 				505EE8352928046A005B0DC0 /* FavoriteViewController.swift in Sources */,
 				505EE82C29280453005B0DC0 /* MainInteractor.swift in Sources */,

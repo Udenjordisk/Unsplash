@@ -15,7 +15,7 @@ class MainInteractor: PresenterToInteractorMainProtocol {
 
     final func getData(_ searchResult: String?) {
         Task {
-            
+            // get data 
             await APIService.shared.getUnsplashData(searchResult) { models in
                 self.presenter?.dataDidLoaded(models)
             }

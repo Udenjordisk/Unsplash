@@ -16,7 +16,8 @@ class MainPresenter: ViewToPresenterMainProtocol {
     var interactor: PresenterToInteractorMainProtocol?
     var router: PresenterToRouterMainProtocol?
     
-    var searchController: UISearchController = {
+    // Search controller
+   lazy var searchController: UISearchController = {
             let searchController = UISearchController(searchResultsController: nil)
             searchController.searchBar.placeholder = "For example: Cute puppies"
             searchController.searchBar.searchBarStyle = .default
@@ -24,8 +25,8 @@ class MainPresenter: ViewToPresenterMainProtocol {
             return searchController
         }()
 
-    // Collection view properties
-    var collectionView: UICollectionView = {
+    // Collection view
+    lazy var collectionView: UICollectionView = {
 
         let waterfallLayout = CHTCollectionViewWaterfallLayout()
         waterfallLayout.columnCount = Int(Constants.columnCount)
@@ -39,12 +40,11 @@ class MainPresenter: ViewToPresenterMainProtocol {
         return collectionView
         }()
 
-    func viewDidLoaded() {
+   final func viewDidLoaded() {
          interactor?.getData(nil)
-
     }
 
-    func searchBarDidSearch(_ searchResult: String) {
+    final func searchBarDidSearch(_ searchResult: String) {
         interactor?.getData(searchResult)
     }
 
