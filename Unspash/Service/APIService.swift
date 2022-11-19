@@ -22,10 +22,10 @@ class APIService {
     func getUnsplashData(_ searchTerm: String?, completion: @escaping ([DataModel]) -> Void) async {
         // Check for search text
         searchTerm == nil ? "" : searchTerm
-        
+
         // fetch response
         let fetchResponse: [DataModel]? = await fetchIt(searchTerm)
-        
+
         // sending a response to interactor
         if let theResponse = fetchResponse {
             completion(theResponse)
@@ -34,7 +34,7 @@ class APIService {
     }
 
     func fetchIt<T: Decodable>(_ searchTerm: String?) async -> T? {
-        
+
         let parameters = self.getParameters(searchTerm: searchTerm)
         let url = self.getURL(parameters: parameters)
         var request = URLRequest(url: url)

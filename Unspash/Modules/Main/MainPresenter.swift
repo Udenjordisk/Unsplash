@@ -15,7 +15,7 @@ class MainPresenter: ViewToPresenterMainProtocol {
     var view: PresenterToViewMainProtocol?
     var interactor: PresenterToInteractorMainProtocol?
     var router: PresenterToRouterMainProtocol?
-    
+
     // Search controller
    lazy var searchController: UISearchController = {
             let searchController = UISearchController(searchResultsController: nil)

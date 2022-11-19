@@ -10,7 +10,7 @@ import CHTCollectionViewWaterfallLayout
 
 // MARK: Collection view methods
 extension MainViewController: UICollectionViewDataSource, UICollectionViewDelegate {
-    
+
     // Number of items in section
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
@@ -30,7 +30,7 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         presenter?.presentPhoto(models[indexPath.row], view: self)
     }
-    
+
 }
 
 // MARK: Waterfall delegate methods

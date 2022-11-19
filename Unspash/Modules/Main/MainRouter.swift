@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 class MainRouter: PresenterToRouterMainProtocol {
-    
+
     // MARK: Static methods
     static func createModule() -> UIViewController {
 

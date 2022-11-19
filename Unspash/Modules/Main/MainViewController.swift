@@ -32,23 +32,23 @@ class MainViewController: UIViewController {
         super.viewDidLayoutSubviews()
        setupUI()
     }
-    
+
     private final func setupUI() {
-        
+
         // Setup search bar
         self.searchController = presenter?.searchController
         self.searchController?.searchBar.delegate = self
         navigationItem.searchController = searchController
-        
+
         // Setup collection view
         self.collectionView = presenter?.collectionView
         collectionView?.frame = view.bounds
         collectionView?.delegate = self
         collectionView?.dataSource = self
         view.addSubview(collectionView!)
-        
+
     }
-    
+
 }
 
     // MARK: Presenter -> View methods
