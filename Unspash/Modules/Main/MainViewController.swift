@@ -15,29 +15,10 @@ class MainViewController: UIViewController {
     var presenter: ViewToPresenterMainProtocol?
     var models: [DataModel] = []
     var timer: Timer?
+    var searchController: UISearchController?
+    var collectionView: UICollectionView?
 
-    let searchController: UISearchController = {
-            let searchController = UISearchController(searchResultsController: nil)
-            searchController.searchBar.placeholder = "For example: Cute puppies"
-            searchController.searchBar.searchBarStyle = .default
-            searchController.definesPresentationContext = true
-            return searchController
-        }()
-    
     // Collection view properties
-    let collectionView: UICollectionView = {
-
-        let waterfallLayout = CHTCollectionViewWaterfallLayout()
-        waterfallLayout.columnCount = Int(Constants.columnCount)
-        waterfallLayout.minimumColumnSpacing = Constants.spacing
-        // FIXME: Иногда слишком большое расстояние между элементами вертикально
-        // Это из-за рандомной высоты ячейки
-        waterfallLayout.minimumInteritemSpacing = Constants.spacing
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: waterfallLayout)
-        collectionView.register(CollectionViewCell.self, forCellWithReuseIdentifier: CollectionViewCell.identifier)
-        
-        return collectionView
-        }()
 
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
@@ -45,19 +26,29 @@ class MainViewController: UIViewController {
 
         presenter?.viewDidLoaded()
 
-        
     }
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        view.addSubview(collectionView)
-        collectionView.frame = view.bounds
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        self.searchController.searchBar.delegate = self
-        navigationItem.searchController = searchController
+       setupUI()
     }
-
+    
+    private final func setupUI() {
+        
+        // Setup search bar
+        self.searchController = presenter?.searchController
+        self.searchController?.searchBar.delegate = self
+        navigationItem.searchController = searchController
+        
+        // Setup collection view
+        self.collectionView = presenter?.collectionView
+        collectionView?.frame = view.bounds
+        collectionView?.delegate = self
+        collectionView?.dataSource = self
+        view.addSubview(collectionView!)
+        
+    }
+    
 }
 
     // MARK: Presenter -> View methods
@@ -67,7 +58,7 @@ extension MainViewController: PresenterToViewMainProtocol {
     func reloadCollection(_ models: [DataModel]) {
         self.models = models
         DispatchQueue.main.async {
-            self.collectionView.reloadData()
+            self.collectionView?.reloadData()
         }
     }
 
@@ -75,12 +66,11 @@ extension MainViewController: PresenterToViewMainProtocol {
 
     // MARK: Collection view methods
 extension MainViewController: UISearchBarDelegate {
-    
+
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        self.searchController.searchBar.endEditing(true)
+        self.searchController?.searchBar.endEditing(true)
         presenter?.searchBarDidSearch(searchBar.searchTextField.text!)
     }
-    
 
 }
 extension MainViewController: UICollectionViewDataSource, UICollectionViewDelegate {
@@ -108,8 +98,5 @@ extension MainViewController: CHTCollectionViewDelegateWaterfallLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: view.frame.size.width / Constants.columnCount, height: 300)
     }
-    
-
-    
 
 }

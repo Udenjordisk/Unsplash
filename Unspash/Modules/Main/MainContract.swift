@@ -6,7 +6,7 @@
 //  
 //
 
-import Foundation
+import UIKit
 
 // MARK: View Output (Presenter -> View)
 protocol PresenterToViewMainProtocol {
@@ -20,6 +20,9 @@ protocol ViewToPresenterMainProtocol {
     var interactor: PresenterToInteractorMainProtocol? { get set }
     var router: PresenterToRouterMainProtocol? { get set }
 
+    var searchController: UISearchController { get set }
+    var collectionView: UICollectionView { get set }
+    
     func viewDidLoaded()
     func searchBarDidSearch(_ searchResult: String)
 }

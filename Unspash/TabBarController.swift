@@ -22,11 +22,11 @@ class TabBarController: UITabBarController {
     private let favoriteTabBarItem = UITabBarItem(title: "Favorite",
                                                   image: UIImage(systemName: "heart.fill"),
                                                   selectedImage: UIImage(systemName: "heart"))
-    
+
     var currentNavigationController: UINavigationController {
                 TabBarController().viewControllers?[TabBarController().selectedIndex] as! UINavigationController
             }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -34,8 +34,7 @@ class TabBarController: UITabBarController {
     }
 
     private final func setupTabBar() {
-        
-        
+
         // Set tab bar items
         main.tabBarItem = mainTabBarItem
         favorite.tabBarItem = favoriteTabBarItem
