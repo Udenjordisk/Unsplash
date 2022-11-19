@@ -36,10 +36,10 @@ class DetailViewController: UIViewController {
     final private func setupUI() {
 
         view.backgroundColor = .white
-        
+
         view.addSubview(imageView)
         view.addSubview(infoView)
-        
+
         setupImageView()
         setupInfoView()
         setupInfoViewSubviews()
@@ -64,44 +64,44 @@ class DetailViewController: UIViewController {
         infoView.addSubview(authorLabel)
         infoView.addSubview(likeButton)
         infoView.addSubview(infoLabel)
-        
+
         infoView.subviews.forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
-        
+
         setupAuthorLabel()
         setupLikeButton()
         setupInfoLabel()
-        
+
     }
-    
+
     final private func setupAuthorLabel() {
         authorLabel.text = model?.user.name
         authorLabel.numberOfLines = 1
         authorLabel.topAnchor.constraint(equalTo: infoView.topAnchor, constant: 10).isActive = true
         authorLabel.leftAnchor.constraint(equalTo: infoView.leftAnchor, constant: 20).isActive = true
     }
-    
+
     final private func setupLikeButton() {
         likeButton.setImage(UIImage(systemName: "heart"), for: .normal)
         likeButton.rightAnchor.constraint(equalTo: infoView.rightAnchor, constant: -25).isActive = true
         likeButton.bottomAnchor.constraint(equalTo: authorLabel.bottomAnchor).isActive = true
         likeButton.addTarget(self, action: #selector(addToFavorite), for: .touchUpInside)
     }
-    
+
     final private func setupInfoLabel() {
         infoLabel.text = "Show additional info"
         infoLabel.font = .boldSystemFont(ofSize: 18)
         infoLabel.textColor = .secondaryLabel
-        
+
         infoLabel.topAnchor.constraint(equalTo: authorLabel.bottomAnchor, constant: 10).isActive = true
         infoLabel.leftAnchor.constraint(equalTo: authorLabel.leftAnchor).isActive = true
         infoLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
-        
+
         infoLabel.isUserInteractionEnabled = true
 
         let recognizer = UITapGestureRecognizer(target: self, action: #selector(showAdditionalInfo(_:)))
         infoLabel.addGestureRecognizer(recognizer)
     }
-    
+
     // MARK: - Tap actions
 
     @objc func addToFavorite() {
@@ -128,5 +128,5 @@ extension DetailViewController: PresenterToViewDetailProtocol {
     final func showDetail(model: DataModel) {
         self.model = model
     }
-    
+
 }

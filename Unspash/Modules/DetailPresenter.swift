@@ -19,7 +19,6 @@ class DetailPresenter: ViewToPresenterDetailProtocol {
         view?.showDetail(model: model)
     }
 
-    
 }
 
 extension DetailPresenter: InteractorToPresenterDetailProtocol {

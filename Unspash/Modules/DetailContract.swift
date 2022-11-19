@@ -33,7 +33,7 @@ protocol PresenterToInteractorDetailProtocol {
 // MARK: Interactor Output (Interactor -> Presenter)
 protocol InteractorToPresenterDetailProtocol {
     func showDetail(model: DataModel)
-    
+
 }
 
 // MARK: Router Input (Presenter -> Router)
