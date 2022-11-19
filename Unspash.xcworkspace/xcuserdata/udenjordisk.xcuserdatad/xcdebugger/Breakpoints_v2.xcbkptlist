@@ -14,9 +14,9 @@
             filePath = "Unspash/Modules/DetailViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "122"
-            endingLineNumber = "122"
-            landmarkName = "setupImageView()"
+            startingLineNumber = "117"
+            endingLineNumber = "117"
+            landmarkName = "addToFavorite()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -30,9 +30,9 @@
             filePath = "Unspash/Modules/DetailViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "126"
-            endingLineNumber = "126"
-            landmarkName = "setupImageView()"
+            startingLineNumber = "121"
+            endingLineNumber = "121"
+            landmarkName = "showAdditionalInfo(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

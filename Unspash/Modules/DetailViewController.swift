@@ -46,26 +46,21 @@ class DetailViewController: UIViewController {
     }
 
     final private func setupImageView() {
-        
         imageView.frame = CGRect(x: 0, y: 20, width: view.bounds.width, height: view.bounds.height/1.5)
         imageView.contentMode = .scaleAspectFit
         imageView.sd_setImage(with: URL(string: (model?.urls.small)!))
-                              
     }
 
     final private func setupInfoView() {
-
         infoView.topAnchor.constraint(equalTo: view.bottomAnchor, constant: -150).isActive = true
         infoView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
         infoView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         infoView.translatesAutoresizingMaskIntoConstraints = false
         infoView.layer.borderWidth = 1.0
         infoView.layer.borderColor = UIColor.black.cgColor
-
     }
 
     final private func setupInfoViewSubviews() {
-
         infoView.addSubview(authorLabel)
         infoView.addSubview(likeButton)
         infoView.addSubview(infoLabel)
@@ -123,7 +118,7 @@ class DetailViewController: UIViewController {
     }
 
     @objc func showAdditionalInfo(_ sender: UITapGestureRecognizer) {
-
+        presenter?.router?.showAlert(model, view: self)
     }
 
 }
@@ -131,11 +126,7 @@ class DetailViewController: UIViewController {
 extension DetailViewController: PresenterToViewDetailProtocol {
 
     final func showDetail(model: DataModel) {
-
         self.model = model
-        
-       
-    
-
     }
+    
 }

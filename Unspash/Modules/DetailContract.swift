@@ -6,7 +6,7 @@
 //  
 //
 
-import Foundation
+import UIKit
 
 // MARK: View Output (Presenter -> View)
 protocol PresenterToViewDetailProtocol {
@@ -33,9 +33,10 @@ protocol PresenterToInteractorDetailProtocol {
 // MARK: Interactor Output (Interactor -> Presenter)
 protocol InteractorToPresenterDetailProtocol {
     func showDetail(model: DataModel)
+    
 }
 
 // MARK: Router Input (Presenter -> Router)
 protocol PresenterToRouterDetailProtocol {
-
+    func showAlert(_ model: DataModel?, view: UIViewController)
 }
