@@ -26,6 +26,11 @@
 		505EE8362928046A005B0DC0 /* FavoriteInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505EE8312928046A005B0DC0 /* FavoriteInteractor.swift */; };
 		5083C88C29290AF100DCFCCE /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5083C88B29290AF100DCFCCE /* CollectionView.swift */; };
 		5083C88E29290B2900DCFCCE /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5083C88D29290B2900DCFCCE /* SearchBar.swift */; };
+		5083C89429290ED800DCFCCE /* DetailContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5083C88F29290ED800DCFCCE /* DetailContract.swift */; };
+		5083C89529290ED800DCFCCE /* DetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5083C89029290ED800DCFCCE /* DetailPresenter.swift */; };
+		5083C89629290ED800DCFCCE /* DetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5083C89129290ED800DCFCCE /* DetailRouter.swift */; };
+		5083C89729290ED800DCFCCE /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5083C89229290ED800DCFCCE /* DetailViewController.swift */; };
+		5083C89829290ED800DCFCCE /* DetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5083C89329290ED800DCFCCE /* DetailInteractor.swift */; };
 		50BFE44929281CF000ABD125 /* MainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BFE44829281CF000ABD125 /* MainCell.swift */; };
 		50BFE44C292822E800ABD125 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BFE44B292822E800ABD125 /* APIService.swift */; };
 		50BFE4502928258B00ABD125 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BFE44F2928258B00ABD125 /* DataModel.swift */; };
@@ -54,6 +59,11 @@
 		505EE8312928046A005B0DC0 /* FavoriteInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteInteractor.swift; sourceTree = "<group>"; };
 		5083C88B29290AF100DCFCCE /* CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
 		5083C88D29290B2900DCFCCE /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		5083C88F29290ED800DCFCCE /* DetailContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailContract.swift; sourceTree = "<group>"; };
+		5083C89029290ED800DCFCCE /* DetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPresenter.swift; sourceTree = "<group>"; };
+		5083C89129290ED800DCFCCE /* DetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRouter.swift; sourceTree = "<group>"; };
+		5083C89229290ED800DCFCCE /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		5083C89329290ED800DCFCCE /* DetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInteractor.swift; sourceTree = "<group>"; };
 		50BFE44829281CF000ABD125 /* MainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCell.swift; sourceTree = "<group>"; };
 		50BFE44B292822E800ABD125 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		50BFE44F2928258B00ABD125 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
@@ -105,12 +115,10 @@
 		500DDA472927FB7E0057FB75 /* Unspash */ = {
 			isa = PBXGroup;
 			children = (
-				5083C88A29290ACD00DCFCCE /* Extensions */,
 				50BFE44A292822BC00ABD125 /* Service */,
 				505EE82029280289005B0DC0 /* Modules */,
 				505EE81F29280282005B0DC0 /* Sources */,
 				505EE81E29280278005B0DC0 /* Helpers */,
-				500DDA4C2927FB7E0057FB75 /* TabBarController.swift */,
 			);
 			path = Unspash;
 			sourceTree = "<group>";
@@ -129,6 +137,7 @@
 		505EE81F29280282005B0DC0 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				500DDA4C2927FB7E0057FB75 /* TabBarController.swift */,
 				500DDA4A2927FB7E0057FB75 /* SceneDelegate.swift */,
 				500DDA482927FB7E0057FB75 /* AppDelegate.swift */,
 			);
@@ -140,6 +149,11 @@
 			children = (
 				505EE822292803EC005B0DC0 /* Main */,
 				505EE821292803D8005B0DC0 /* Favorite */,
+				5083C88F29290ED800DCFCCE /* DetailContract.swift */,
+				5083C89029290ED800DCFCCE /* DetailPresenter.swift */,
+				5083C89129290ED800DCFCCE /* DetailRouter.swift */,
+				5083C89229290ED800DCFCCE /* DetailViewController.swift */,
+				5083C89329290ED800DCFCCE /* DetailInteractor.swift */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -159,6 +173,7 @@
 		505EE822292803EC005B0DC0 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				5083C88A29290ACD00DCFCCE /* Extensions */,
 				50BFE44829281CF000ABD125 /* MainCell.swift */,
 				505EE82329280453005B0DC0 /* MainContract.swift */,
 				505EE82429280453005B0DC0 /* MainPresenter.swift */,
@@ -328,10 +343,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5083C89429290ED800DCFCCE /* DetailContract.swift in Sources */,
+				5083C89629290ED800DCFCCE /* DetailRouter.swift in Sources */,
+				5083C89729290ED800DCFCCE /* DetailViewController.swift in Sources */,
 				5083C88C29290AF100DCFCCE /* CollectionView.swift in Sources */,
 				505EE8362928046A005B0DC0 /* FavoriteInteractor.swift in Sources */,
 				502722F9292840AA00F1ED50 /* Constants.swift in Sources */,
 				50BFE44C292822E800ABD125 /* APIService.swift in Sources */,
+				5083C89529290ED800DCFCCE /* DetailPresenter.swift in Sources */,
 				505EE82B29280453005B0DC0 /* MainViewController.swift in Sources */,
 				505EE82929280453005B0DC0 /* MainPresenter.swift in Sources */,
 				505EE8332928046A005B0DC0 /* FavoritePresenter.swift in Sources */,
@@ -339,6 +358,7 @@
 				505EE8342928046A005B0DC0 /* FavoriteRouter.swift in Sources */,
 				500DDA4D2927FB7E0057FB75 /* TabBarController.swift in Sources */,
 				505EE8322928046A005B0DC0 /* FavoriteContract.swift in Sources */,
+				5083C89829290ED800DCFCCE /* DetailInteractor.swift in Sources */,
 				500DDA492927FB7E0057FB75 /* AppDelegate.swift in Sources */,
 				50BFE44929281CF000ABD125 /* MainCell.swift in Sources */,
 				500DDA4B2927FB7E0057FB75 /* SceneDelegate.swift in Sources */,

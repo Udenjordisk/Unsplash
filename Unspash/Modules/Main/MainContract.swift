@@ -25,6 +25,7 @@ protocol ViewToPresenterMainProtocol {
     
     func viewDidLoaded()
     func searchBarDidSearch(_ searchResult: String)
+    func presentPhoto(_ model: DataModel, view: UIViewController)
 }
 
 // MARK: Interactor Input (Presenter -> Interactor)
@@ -43,7 +44,7 @@ protocol InteractorToPresenterMainProtocol {
 
 // MARK: Router Input (Presenter -> Router)
 protocol PresenterToRouterMainProtocol {
-
+    func presentPhoto(_ model: DataModel, view: UIViewController)
 }
 
 // MARK: Cell configurable

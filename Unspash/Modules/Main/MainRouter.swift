@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 class MainRouter: PresenterToRouterMainProtocol {
-
+    
     // MARK: Static methods
     static func createModule() -> UIViewController {
 
@@ -27,4 +27,7 @@ class MainRouter: PresenterToRouterMainProtocol {
         return viewController
     }
 
+    func presentPhoto(_ model: DataModel, view: UIViewController) {
+        view.present(DetailRouter.createModule(model: model), animated: true)
+    }
 }

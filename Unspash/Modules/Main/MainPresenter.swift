@@ -48,7 +48,9 @@ class MainPresenter: ViewToPresenterMainProtocol {
         interactor?.getData(searchResult)
     }
 
-    
+    final func presentPhoto(_ model: DataModel, view: UIViewController) {
+        router?.presentPhoto(model, view: view)
+    }
 }
 
 extension MainPresenter: InteractorToPresenterMainProtocol {
