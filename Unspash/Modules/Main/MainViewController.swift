@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import CollectionViewWaterfallLayout
+import CHTCollectionViewWaterfallLayout
 
 class MainViewController: UIViewController {
 
@@ -18,14 +18,15 @@ class MainViewController: UIViewController {
     // Collection view properties
     let collectionView: UICollectionView = {
 
-        let waterfallLayout = CollectionViewWaterfallLayout()
+        let waterfallLayout = CHTCollectionViewWaterfallLayout()
         waterfallLayout.columnCount = Int(Constants.columnCount)
         waterfallLayout.minimumColumnSpacing = Constants.spacing
+        // FIXME: Иногда слишком большое расстояние между элементами вертикально
+        // Это из-за рандомной высоты ячейки
         waterfallLayout.minimumInteritemSpacing = Constants.spacing
-
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: waterfallLayout)
         collectionView.register(CollectionViewCell.self, forCellWithReuseIdentifier: CollectionViewCell.identifier)
-
+        
         return collectionView
         }()
 
@@ -35,19 +36,22 @@ class MainViewController: UIViewController {
 
         presenter?.viewDidLoaded()
 
-        view.addSubview(collectionView)
-        collectionView.delegate = self
-        collectionView.dataSource = self
+        
+        
     }
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-
+        view.addSubview(collectionView)
         collectionView.frame = view.bounds
-
+        collectionView.delegate = self
+        collectionView.dataSource = self
     }
 
 }
+
+    // MARK: Presenter -> View methods
+
 extension MainViewController: PresenterToViewMainProtocol {
 
     func reloadCollection(_ models: [DataModel]) {
@@ -58,6 +62,8 @@ extension MainViewController: PresenterToViewMainProtocol {
     }
 
 }
+
+    // MARK: Collection view methods
 
 extension MainViewController: UICollectionViewDataSource, UICollectionViewDelegate {
 
@@ -77,15 +83,15 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
     }
 
 }
-    // TODO: Избавиться от magic numbers
-extension MainViewController: CollectionViewWaterfallLayoutDelegate {
 
-    func collectionView(_ collectionView: UICollectionView,
-                        layout: UICollectionViewLayout,
-                        sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+    // MARK: Waterfall delegate methods
 
-        return CGSize(width: view.frame.size.width / Constants.columnCount, height: CGFloat.random(in: 250...400))
-
+extension MainViewController: CHTCollectionViewDelegateWaterfallLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: view.frame.size.width / Constants.columnCount, height: 300)
     }
+    
+
+    
 
 }

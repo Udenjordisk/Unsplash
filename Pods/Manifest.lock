@@ -1,26 +1,28 @@
 PODS:
-  - CollectionViewWaterfallLayout (0.5.0)
+  - CHTCollectionViewWaterfallLayout (0.9.10):
+    - CHTCollectionViewWaterfallLayout/Swift (= 0.9.10)
+  - CHTCollectionViewWaterfallLayout/Swift (0.9.10)
   - SDWebImage (5.14.0):
     - SDWebImage/Core (= 5.14.0)
   - SDWebImage/Core (5.14.0)
   - SwiftLint (0.49.1)
 
 DEPENDENCIES:
-  - CollectionViewWaterfallLayout
+  - CHTCollectionViewWaterfallLayout
   - SDWebImage
   - SwiftLint
 
 SPEC REPOS:
   trunk:
-    - CollectionViewWaterfallLayout
+    - CHTCollectionViewWaterfallLayout
     - SDWebImage
     - SwiftLint
 
 SPEC CHECKSUMS:
-  CollectionViewWaterfallLayout: 4399ba01be265fff4da1ed1d607130fe009780e4
+  CHTCollectionViewWaterfallLayout: b989a459788d7657ac010e03bc0f7eedca95a420
   SDWebImage: 9e391cf38577742f501055dca17e4987f6713fe1
   SwiftLint: 32ee33ded0636d0905ef6911b2b67bbaeeedafa5
 
-PODFILE CHECKSUM: d1adbe5ec8c644743ef9fd12cea3c689c9798640
+PODFILE CHECKSUM: 8b697119135a24efebe788f8c6a07343395b438d
 
 COCOAPODS: 1.11.3

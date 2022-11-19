@@ -21,6 +21,7 @@ class CollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
         contentView.addSubview(imageView)
         contentView.clipsToBounds = true
+        contentView.layer.cornerRadius = 15
     }
 
     required init?(coder: NSCoder) {

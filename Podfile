@@ -8,7 +8,7 @@ target 'Unspash' do
   # Pods for Unspash
 
 pod 'SwiftLint'
-pod "CollectionViewWaterfallLayout"
+pod 'CHTCollectionViewWaterfallLayout'
 pod 'SDWebImage'
 
 end
