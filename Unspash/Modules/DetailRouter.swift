@@ -57,3 +57,4 @@ extension DetailRouter {
         return alert
     }
 }
+
