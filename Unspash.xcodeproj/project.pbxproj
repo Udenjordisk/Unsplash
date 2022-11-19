@@ -41,6 +41,7 @@
 		50A165EB292968E000AC5AD4 /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = 50A165EA292968E000AC5AD4 /* FirebaseRemoteConfig */; };
 		50A165ED292968E000AC5AD4 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 50A165EC292968E000AC5AD4 /* FirebaseStorage */; };
 		50A165EF29296EB300AC5AD4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 50A165EE29296EB300AC5AD4 /* GoogleService-Info.plist */; };
+		50A165F129296FD900AC5AD4 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A165F029296FD900AC5AD4 /* FirebaseService.swift */; };
 		50BFE44929281CF000ABD125 /* MainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BFE44829281CF000ABD125 /* MainCell.swift */; };
 		50BFE44C292822E800ABD125 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BFE44B292822E800ABD125 /* APIService.swift */; };
 		50BFE4502928258B00ABD125 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BFE44F2928258B00ABD125 /* DataModel.swift */; };
@@ -75,6 +76,7 @@
 		5083C89229290ED800DCFCCE /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		5083C89329290ED800DCFCCE /* DetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInteractor.swift; sourceTree = "<group>"; };
 		50A165EE29296EB300AC5AD4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		50A165F029296FD900AC5AD4 /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 		50BFE44829281CF000ABD125 /* MainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCell.swift; sourceTree = "<group>"; };
 		50BFE44B292822E800ABD125 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		50BFE44F2928258B00ABD125 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
@@ -168,13 +170,9 @@
 		505EE82029280289005B0DC0 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				50A165F229297F3600AC5AD4 /* Detail */,
 				505EE822292803EC005B0DC0 /* Main */,
 				505EE821292803D8005B0DC0 /* Favorite */,
-				5083C88F29290ED800DCFCCE /* DetailContract.swift */,
-				5083C89029290ED800DCFCCE /* DetailPresenter.swift */,
-				5083C89129290ED800DCFCCE /* DetailRouter.swift */,
-				5083C89229290ED800DCFCCE /* DetailViewController.swift */,
-				5083C89329290ED800DCFCCE /* DetailInteractor.swift */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -214,11 +212,24 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		50A165F229297F3600AC5AD4 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				5083C89329290ED800DCFCCE /* DetailInteractor.swift */,
+				5083C89229290ED800DCFCCE /* DetailViewController.swift */,
+				5083C89129290ED800DCFCCE /* DetailRouter.swift */,
+				5083C89029290ED800DCFCCE /* DetailPresenter.swift */,
+				5083C88F29290ED800DCFCCE /* DetailContract.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
 		50BFE44A292822BC00ABD125 /* Service */ = {
 			isa = PBXGroup;
 			children = (
 				50BFE44B292822E800ABD125 /* APIService.swift */,
 				50BFE44F2928258B00ABD125 /* DataModel.swift */,
+				50A165F029296FD900AC5AD4 /* FirebaseService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -395,6 +406,7 @@
 				500DDA4D2927FB7E0057FB75 /* TabBarController.swift in Sources */,
 				505EE8322928046A005B0DC0 /* FavoriteContract.swift in Sources */,
 				5083C89829290ED800DCFCCE /* DetailInteractor.swift in Sources */,
+				50A165F129296FD900AC5AD4 /* FirebaseService.swift in Sources */,
 				500DDA492927FB7E0057FB75 /* AppDelegate.swift in Sources */,
 				50BFE44929281CF000ABD125 /* MainCell.swift in Sources */,
 				500DDA4B2927FB7E0057FB75 /* SceneDelegate.swift in Sources */,

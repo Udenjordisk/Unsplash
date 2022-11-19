@@ -8,6 +8,7 @@
 
 import UIKit
 import SDWebImage
+import Firebase
 
 class DetailViewController: UIViewController {
 
@@ -110,6 +111,7 @@ class DetailViewController: UIViewController {
 
         switch isLiked {
             case true:
+//            FirebaseService.shared.addFavoritePhoto(id: (model?.id.description)!)
                 likeButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
             case false:
                 likeButton.setImage(UIImage(systemName: "heart"), for: .normal)
