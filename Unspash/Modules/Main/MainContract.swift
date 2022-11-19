@@ -21,6 +21,7 @@ protocol ViewToPresenterMainProtocol {
     var router: PresenterToRouterMainProtocol? { get set }
 
     func viewDidLoaded()
+    func searchBarDidSearch(_ searchResult: String)
 }
 
 // MARK: Interactor Input (Presenter -> Interactor)
@@ -29,6 +30,7 @@ protocol PresenterToInteractorMainProtocol {
     var presenter: InteractorToPresenterMainProtocol? { get set }
 
     func getData()
+    func searchPhoto(_ searchResult: String)
 }
 
 // MARK: Interactor Output (Interactor -> Presenter)

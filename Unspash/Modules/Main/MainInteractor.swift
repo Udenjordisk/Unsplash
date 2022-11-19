@@ -20,5 +20,11 @@ class MainInteractor: PresenterToInteractorMainProtocol {
             }
         }
     }
+    
+    final func searchPhoto(_ searchResult: String) {
+        print(searchResult)
+        
+    }
+    
 
 }

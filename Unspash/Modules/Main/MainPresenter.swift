@@ -9,6 +9,8 @@
 import Foundation
 
 class MainPresenter: ViewToPresenterMainProtocol {
+  
+    
 
     // MARK: Properties
     var view: PresenterToViewMainProtocol?
@@ -19,7 +21,11 @@ class MainPresenter: ViewToPresenterMainProtocol {
          interactor?.getData()
 
     }
-
+    
+    func searchBarDidSearch(_ searchResult: String) {
+        interactor?.searchPhoto(searchResult)
+    }
+    
 }
 
 extension MainPresenter: InteractorToPresenterMainProtocol {

@@ -14,7 +14,16 @@ class MainViewController: UIViewController {
     // MARK: - Properties
     var presenter: ViewToPresenterMainProtocol?
     var models: [DataModel] = []
+    var timer: Timer?
 
+    let searchController: UISearchController = {
+            let searchController = UISearchController(searchResultsController: nil)
+            searchController.searchBar.placeholder = "For example: Cute puppies"
+            searchController.searchBar.searchBarStyle = .default
+            searchController.definesPresentationContext = true
+            return searchController
+        }()
+    
     // Collection view properties
     let collectionView: UICollectionView = {
 
@@ -37,7 +46,6 @@ class MainViewController: UIViewController {
         presenter?.viewDidLoaded()
 
         
-        
     }
 
     override func viewDidLayoutSubviews() {
@@ -46,6 +54,8 @@ class MainViewController: UIViewController {
         collectionView.frame = view.bounds
         collectionView.delegate = self
         collectionView.dataSource = self
+        self.searchController.searchBar.delegate = self
+        navigationItem.searchController = searchController
     }
 
 }
@@ -64,7 +74,15 @@ extension MainViewController: PresenterToViewMainProtocol {
 }
 
     // MARK: Collection view methods
+extension MainViewController: UISearchBarDelegate {
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        self.searchController.searchBar.endEditing(true)
+        presenter?.searchBarDidSearch(searchBar.searchTextField.text!)
+    }
+    
 
+}
 extension MainViewController: UICollectionViewDataSource, UICollectionViewDelegate {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
