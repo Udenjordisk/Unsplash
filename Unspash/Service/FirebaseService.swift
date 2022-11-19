@@ -22,9 +22,9 @@ class FirebaseService {
     
     private final func authUser(completion: @escaping (String) -> Void) {
         Auth.auth().signInAnonymously { authResult, _ in
-            
+            // Anonymous authentification
             guard let user = authResult?.user else { return }
-            let isAnonymous = user.isAnonymous  // true
+//            let isAnonymous = user.isAnonymous  // true
             let uid = user.uid
             completion(uid)
         }
@@ -37,7 +37,9 @@ class FirebaseService {
     }
     
     final func getFavoritePhotosID(completion: @escaping ([QueryDocumentSnapshot]) -> Void) {
+        // User auth
         authUser { [weak self] UID in
+            // Get favorite photos ID grom firestore database
             self?.configureFB().collection("users").document(UID).collection("favorite_photos").getDocuments(completion: { snapshot, error in
                 if let error = error {
                     print(error.localizedDescription)

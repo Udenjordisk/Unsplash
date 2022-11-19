@@ -12,7 +12,8 @@ class MainInteractor: PresenterToInteractorMainProtocol {
 
     // MARK: Properties
     var presenter: InteractorToPresenterMainProtocol?
-
+    var favoriteIndeces = [String]()
+    
     final func getData(_ searchResult: String?) {
         Task {
             // get data 
@@ -22,4 +23,16 @@ class MainInteractor: PresenterToInteractorMainProtocol {
         }
     }
 
+    final func loadFirestoreData() {
+        FirebaseService.shared.getFavoritePhotosID { documents in
+            
+            for index in 0...documents.count - 1 {
+               let id = documents[index].data().values.first
+                self.favoriteIndeces.append(id as! String)
+            }
+            print(self.favoriteIndeces)
+            
+        }
+    }
+    
 }

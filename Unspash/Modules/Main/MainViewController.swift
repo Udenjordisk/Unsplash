@@ -27,6 +27,7 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         // Add a new document with a generated ID
         presenter?.viewDidLoaded()
+        presenter?.interactor?.loadFirestoreData()
 
     }
 
