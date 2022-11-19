@@ -38,5 +38,5 @@ protocol InteractorToPresenterDetailProtocol {
 
 // MARK: Router Input (Presenter -> Router)
 protocol PresenterToRouterDetailProtocol {
-    func showAlert(_ model: DataModel?, view: UIViewController)
+    func showAlert(_ model: DataModel?, view: DetailViewController)
 }
