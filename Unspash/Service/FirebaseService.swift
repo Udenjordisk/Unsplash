@@ -8,14 +8,14 @@
 import UIKit
 import Firebase
 
-class FirebaseService {
+final class FirebaseService {
 
     static let shared = FirebaseService()
 
     let UID = Auth.auth().currentUser?.uid ?? ""
 
-    // MARK: Init firestore
-    private final func configureFB() -> Firestore {
+    // MARK: - Init firestore
+    private func configureFB() -> Firestore {
         var db: Firestore!
         let settings = FirestoreSettings()
         Firestore.firestore().settings = settings
@@ -23,8 +23,8 @@ class FirebaseService {
         return db
     }
 
-    // MARK: Auth user
-    private final func authUser() {
+    // MARK: - Auth user
+    private func authUser() {
         Auth.auth().signInAnonymously { authResult, _ in
             // Anonymous authentification
             guard let user = authResult?.user else { return }
@@ -33,8 +33,8 @@ class FirebaseService {
         }
     }
 
-    // MARK: Add photo to favorites in Firestore database
-    final func addFavoritePhoto(model: DataModel) {
+    // MARK: - Add photo to favorites in Firestore database
+    func addFavoritePhoto(model: DataModel) {
 
         self.configureFB()
             .collection("users").document(UID)
@@ -52,7 +52,7 @@ class FirebaseService {
 
     }
 
-    // MARK: Get documents from Firestore
+    // MARK: - Get documents from Firestore
     func getFavoritePhotos() {
 
         // Get favorite photos ID grom firestore database
@@ -67,15 +67,12 @@ class FirebaseService {
             } else {
                 FavoritePhotoManager.shared.handlePhoto(snapshot: snapshot) { models in
                     FavoritePhotoManager.shared.models.append(contentsOf: models)
-                    
                 }
             }
         }
-
     }
-
-    // MARK: Check like on photo (search photo id in Firestore)
-    final func checkPhotoID(id: String, completion: @escaping (Bool) -> Void) {
+    // MARK: - Check like on photo (search photo id in Firestore)
+    func checkPhotoID(id: String, completion: @escaping (Bool) -> Void) {
 
         configureFB()
             .collection("users").document(UID)
@@ -89,5 +86,13 @@ class FirebaseService {
         }
         
     }
+    // MARK: - Remove photo from database
+    func removeFavoritePhoto(id: String) {
+        configureFB()
+        .collection("users").document(UID)
+        .collection("favorite_photos").document(id)
+        .delete()
+    }
+    
 
 }

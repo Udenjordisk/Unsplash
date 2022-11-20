@@ -15,9 +15,7 @@ class DetailViewController: UIViewController {
     // MARK: - Properties
     var presenter: ViewToPresenterDetailProtocol?
 
-    var model: DataModel?
-
-    let imageView = UIImageView()
+    lazy var imageView = UIImageView()
     let infoView = UIView()
     let authorLabel = UILabel()
     let likeButton = UIButton()
@@ -49,7 +47,6 @@ class DetailViewController: UIViewController {
     final private func setupImageView() {
         imageView.frame = CGRect(x: 0, y: 20, width: view.bounds.width, height: view.bounds.height/1.5)
         imageView.contentMode = .scaleAspectFit
-        imageView.sd_setImage(with: URL(string: (model?.urls.small)!))
     }
 
     final private func setupInfoView() {
@@ -75,7 +72,6 @@ class DetailViewController: UIViewController {
     }
 
     final private func setupAuthorLabel() {
-        authorLabel.text = model?.user.name
         authorLabel.numberOfLines = 1
         authorLabel.topAnchor.constraint(equalTo: infoView.topAnchor, constant: 10).isActive = true
         authorLabel.leftAnchor.constraint(equalTo: infoView.leftAnchor, constant: 20).isActive = true
@@ -103,30 +99,8 @@ class DetailViewController: UIViewController {
         let recognizer = UITapGestureRecognizer(target: self, action: #selector(showAdditionalInfo(_:)))
         infoLabel.addGestureRecognizer(recognizer)
     }
-
-    // MARK: - Tap actions
-
-    @objc func addToFavorite() {
-
-        isLiked.toggle()
-
-        switch isLiked {
-            case true:
-            // TODO: перенести в интерактор
-            presenter?.like()
-                likeButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-            case false:
-            presenter?.dislike()
-                likeButton.setImage(UIImage(systemName: "heart"), for: .normal)
-        }
-
-    }
-
-    @objc func showAdditionalInfo(_ sender: UITapGestureRecognizer) {
-        presenter?.router?.showAlert(model, view: self)
-    }
-
-    private func invalidateIsLikedButton() {
+    
+        func invalidateIsLikedButton() {
         if isLiked {
             likeButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
         } else {
@@ -134,17 +108,28 @@ class DetailViewController: UIViewController {
 
         }
     }
+    // MARK: - Tap actions
+
+    @objc func addToFavorite() {
+        presenter?.likeButtonTapped()
+    }
+
+    @objc func showAdditionalInfo(_ sender: UITapGestureRecognizer) {
+        presenter?.showAlert(view: self)
+    }
+
+
 
 }
 
 extension DetailViewController: PresenterToViewDetailProtocol {
-
-    final func showDetail(model: DataModel) {
-        self.model = model
-
+    
+    func showDetail(url: URL, author: String) {
+        self.imageView.sd_setImage(with: url)
+        self.authorLabel.text = author
     }
 
-    final func isLikedChanged(isLiked: Bool) {
+    func isLikedChanged(isLiked: Bool) {
         self.isLiked = isLiked
         invalidateIsLikedButton()
     }

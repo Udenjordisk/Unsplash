@@ -27,12 +27,22 @@ class DetailInteractor: PresenterToInteractorDetailProtocol {
 
     func loadData() {
         guard let model = model else { return }
-        presenter?.showDetail(model: model)
-        // TODO: Проверять есть ли лайк на фото и передавать в контроллер
+        // Show data
+        presenter?.completeLoad(model: model)
+        // Check for like
         FirebaseService.shared.checkPhotoID(id: model.id) {[weak self] bool in
             self?.presenter?.isLikedChanged(isLiked: bool)
         }
-
     }
 
+    func addFavoritePhoto() {
+        guard let model = model else { return }
+        FirebaseService.shared.addFavoritePhoto(model: model)
+        FirebaseService.shared.getFavoritePhotos()
+    }
+    func removeFavoritePhoto() {
+        guard let model = model else { return }
+        FirebaseService.shared.removeFavoritePhoto(id: model.id)
+        FirebaseService.shared.getFavoritePhotos()
+    }
 }

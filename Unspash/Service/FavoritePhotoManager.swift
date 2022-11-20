@@ -13,7 +13,7 @@ class FavoritePhotoManager {
     static let shared = FavoritePhotoManager()
     
     // MARK: Local favorite photos array
-    var models = [DataModel]()
+    lazy var models = [DataModel]()
     
     // MARK: - Handle favorite photos
     /// Handle  photos
@@ -82,8 +82,5 @@ class FavoritePhotoManager {
             }
                 
             }
-            
         }
-        // end for
-        
     }
