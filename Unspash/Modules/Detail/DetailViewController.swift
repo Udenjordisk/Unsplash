@@ -112,7 +112,8 @@ class DetailViewController: UIViewController {
 
         switch isLiked {
             case true:
-            FirebaseService.shared.addFavoritePhoto(id: (model?.id)!)
+            //TODO: перенести в интерактор
+            FirebaseService.shared.addFavoritePhoto(model: model!)
                 likeButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
             case false:
                 likeButton.setImage(UIImage(systemName: "heart"), for: .normal)

@@ -33,9 +33,18 @@ class FirebaseService {
     }
 
     // MARK: Add photo to favorites in Firestore database
-    final func addFavoritePhoto(id: String) {
+    final func addFavoritePhoto(model: DataModel) {
+        
         authUser { [weak self] UID in
-            self?.configureFB().collection("users").document(UID).collection("favorite_photos").document(id).setData([:])
+            self?.configureFB().collection("users").document(UID).collection("favorite_photos").document(model.id).setData([
+                "created_at": model.created_at,
+                "url_small": model.urls.small,
+                "url_full": model.urls.full,
+                "user_name": model.user.name,
+                "location_name": model.location?.name,
+                "downloads": model.downloads,
+                "likes": model.likes
+            ])
         }
     }
 
@@ -64,11 +73,9 @@ class FirebaseService {
 
             docRef?.getDocument { document, _ in
                 if let document = document, document.exists {
-                    // TODO: Return true
                     completion(true)
                 } else {
                     completion(false)
-                    // TODO: Return false
                 }
             }
         }
