@@ -8,10 +8,9 @@
 import UIKit
 import Firebase
 
-struct LocalStorage {
-    static let shared = LocalStorage()
-    var models = [DataModel]()
-}
+
+    
+
 
 struct DataModel: Codable {
     var id: String
@@ -37,8 +36,12 @@ struct Location: Codable {
 }
 
 class FavoritePhotoManager {
-    // MARK: - Handle user tasks
-    /// Handle  tasks
+    
+    static let shared = FavoritePhotoManager()
+    
+    var models = [DataModel]()
+    // MARK: - Handle favorite photos
+    /// Handle  photos
     public func handlePhoto(snapshot: QuerySnapshot, finished: @escaping ([DataModel]) -> Void) {
         
         /// temp array with models
@@ -81,7 +84,7 @@ class FavoritePhotoManager {
             let user = User(
                 name: userName as? String ?? ""
             )
-            /// make task object
+            /// make photo object
             let model = DataModel(
                 id: id as? String ?? "",
                 created_at: createdAt as? String ?? "",

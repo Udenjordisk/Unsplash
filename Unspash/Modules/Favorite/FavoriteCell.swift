@@ -11,7 +11,7 @@ class FavoriteCell: UITableViewCell {
 
     static let identifier = "favoriteCell"
 
-    var model: DataModel?
+//    var model: DataModel?
 
     private lazy var ImageView: UIImageView = {
         let imageView = UIImageView()
@@ -60,19 +60,20 @@ class FavoriteCell: UITableViewCell {
         ImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor,constant: -15).isActive = true
         ImageView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 15).isActive = true
         ImageView.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 3/10).isActive = true
-        ImageView.image = UIImage(systemName: "heart")
+        ImageView.image = UIImage(systemName: "photo")
         authorLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5).isActive = true
         authorLabel.leftAnchor.constraint(equalTo: ImageView.rightAnchor, constant: 10).isActive = true
         authorLabel.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 5/10).isActive = true
     }
 
-//    func configur(model: MainModel){
+    func configure(model: DataModel){
 //            self.model = model
-//
-//            guard let url = URL(string: model.urls.small) else {return}
-//
-//        ImageView.sd_setImage(with: url, placeholderImage: nil, options: [.progressiveLoad,.continueInBackground], completed: nil)
-//        authorLabel.text = model.user.name
-//    }
+
+        guard let url = URL(string: model.urls.small) else {return}
+
+        ImageView.sd_setImage(with: url, placeholderImage: nil, options: [.progressiveLoad,.continueInBackground], completed: nil)
+        
+        authorLabel.text = model.user.name
+    }
 
     }

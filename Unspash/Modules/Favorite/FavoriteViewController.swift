@@ -64,18 +64,17 @@ extension FavoriteViewController: UITableViewDataSource {
 
     // MARK: - Table view data source
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-       20
+        FavoritePhotoManager.shared.models.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "favoriteCell", for: indexPath)
         as! FavoriteCell
 
-        cell.imageView?.backgroundColor = .red
+        let model = FavoritePhotoManager.shared.models[indexPath.row]
 //        let model = FavoriteListTempStorage.shared.favoriteModels[indexPath.row]
 //        cell.configur(model: model)
-
+        cell.configure(model: model)
         return cell
     }
 

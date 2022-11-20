@@ -65,8 +65,8 @@ class FirebaseService {
             if let error = error {
                 print(error.localizedDescription)
             } else {
-                FavoritePhotoManager().handlePhoto(snapshot: snapshot) { models in
-                    print(models)
+                FavoritePhotoManager.shared.handlePhoto(snapshot: snapshot) { models in
+                    FavoritePhotoManager.shared.models.append(contentsOf: models)
                     
                 }
             }
