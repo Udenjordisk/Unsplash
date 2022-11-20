@@ -21,5 +21,9 @@ class MainInteractor: PresenterToInteractorMainProtocol {
             }
         }
     }
+    
+    func backgroundGetFavoritePhotos(){
+        FirebaseService.shared.getFavoritePhotos()
+    }
 
 }

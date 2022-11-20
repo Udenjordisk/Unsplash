@@ -36,7 +36,11 @@ class FirebaseService {
     // MARK: Add photo to favorites in Firestore database
     final func addFavoritePhoto(model: DataModel) {
 
-        self.configureFB().collection("users").document(UID).collection("favorite_photos").document(model.id).setData([
+        self.configureFB()
+            .collection("users").document(UID)
+            .collection("favorite_photos").document(model.id)
+            .setData([
+            "id": model.id,
             "created_at": model.created_at,
             "url_small": model.urls.small,
             "url_full": model.urls.full,
@@ -52,30 +56,38 @@ class FirebaseService {
     func getFavoritePhotos() {
 
         // Get favorite photos ID grom firestore database
-        configureFB().collection("users").document(UID).collection("favorite_photos").getDocuments(completion: { snapshot, error in
+        configureFB()
+            .collection("users").document(UID)
+            .collection("favorite_photos")
+            .getDocuments { snapshot, error in
+            guard let snapshot = snapshot else { return }
+                
             if let error = error {
                 print(error.localizedDescription)
             } else {
-                for document in snapshot!.documents {
-                    print("\(document.documentID) => \(document.data())")
+                FavoritePhotoManager().handlePhoto(snapshot: snapshot) { models in
+                    print(models)
+                    
                 }
             }
-        })
+        }
 
     }
 
     // MARK: Check like on photo (search photo id in Firestore)
     final func checkPhotoID(id: String, completion: @escaping (Bool) -> Void) {
 
-        let docRef = configureFB().collection("users").document(UID).collection("favorite_photos").document(id)
-
-        docRef.getDocument { document, _ in
+        configureFB()
+            .collection("users").document(UID)
+            .collection("favorite_photos").document(id)
+            .getDocument { document, _ in
             if let document = document, document.exists {
                 completion(true)
             } else {
                 completion(false)
             }
         }
+        
     }
 
 }

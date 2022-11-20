@@ -29,7 +29,6 @@ class FavoriteViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
             super.viewWillAppear(animated)
-        FirebaseService.shared.getFavoritePhotos()
 
             tableView.reloadData()
         }

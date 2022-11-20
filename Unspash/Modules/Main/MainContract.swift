@@ -34,6 +34,7 @@ protocol PresenterToInteractorMainProtocol {
     var presenter: InteractorToPresenterMainProtocol? { get set }
 
     func getData(_ searchResult: String?)
+    func backgroundGetFavoritePhotos()
 }
 
 // MARK: Interactor Output (Interactor -> Presenter)
