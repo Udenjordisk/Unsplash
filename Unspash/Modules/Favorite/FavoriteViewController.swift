@@ -19,8 +19,7 @@ class FavoriteViewController: UIViewController {
         tableView.frame = view.bounds
         tableView.register(FavoriteCell.self,
                            forCellReuseIdentifier: FavoriteCell.identifier)
-//                StorageManager.shared.getData()
-        navigationItem.leftBarButtonItem = editButtonItem
+
         tableView.rowHeight = 150
         tableView.reloadData()
         tableView.delegate = self
@@ -46,15 +45,8 @@ extension FavoriteViewController: PresenterToViewFavoriteProtocol {
 extension FavoriteViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            //
-            //                  let cell = FavoriteListTempStorage.shared.favoriteModels.remove(at: indexPath.row)
-            //                  FavoriteListTempStorage.shared.likeChecker.remove(cell.id)
-            //                  FavoriteListTempStorage.shared.likeChekerDict.removeValue(forKey: cell.id)
-            //
-            //
-            //
-            //                  StorageManager.shared.saveData()
-            //
+            let cell = FavoritePhotoManager.shared.models.remove(at: indexPath.row)
+            //Remove from database
             self.tableView.reloadData()
         }
     }
@@ -72,16 +64,13 @@ extension FavoriteViewController: UITableViewDataSource {
         as! FavoriteCell
 
         let model = FavoritePhotoManager.shared.models[indexPath.row]
-//        let model = FavoriteListTempStorage.shared.favoriteModels[indexPath.row]
-//        cell.configur(model: model)
+        
         cell.configure(model: model)
         return cell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let model = FavoriteListTempStorage.shared.favoriteModels[indexPath.row]
-// TO ROUTER
-//        self.navigationController?.pushViewController(DetailRouter.createModule(model: model), animated: true)
+//To router
     }
 
 }

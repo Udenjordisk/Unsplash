@@ -10,6 +10,9 @@ import UIKit
 
 // MARK: View Output (Presenter -> View)
 protocol PresenterToViewDetailProtocol {
+    var isLiked: Bool { get set }
+
+    
     func showDetail(model: DataModel)
 
     func isLikedChanged(isLiked: Bool)
@@ -23,6 +26,8 @@ protocol ViewToPresenterDetailProtocol {
     var router: PresenterToRouterDetailProtocol? { get set }
 
     func viewDidLoaded()
+    func like()
+    func dislike()
 }
 
 // MARK: Interactor Input (Presenter -> Interactor)
