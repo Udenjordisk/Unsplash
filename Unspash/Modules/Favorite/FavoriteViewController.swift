@@ -11,7 +11,10 @@ import UIKit
 class FavoriteViewController: UIViewController {
 
     let tableView = UITableView()
-
+    
+    // MARK: - Properties
+    var presenter: ViewToPresenterFavoriteProtocol?
+    
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +23,6 @@ class FavoriteViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
             super.viewWillAppear(animated)
-
             tableView.reloadData()
         }
 
@@ -41,9 +43,6 @@ class FavoriteViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
     }
-    
-    // MARK: - Properties
-    var presenter: ViewToPresenterFavoriteProtocol?
 
 }
 
@@ -82,7 +81,8 @@ extension FavoriteViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//To router
+        //To router
+        presenter?.showDetail(view: self, index: indexPath.row)
     }
 
 }

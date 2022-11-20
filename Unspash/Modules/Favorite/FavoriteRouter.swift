@@ -27,4 +27,8 @@ class FavoriteRouter: PresenterToRouterFavoriteProtocol {
         return viewController
     }
 
+    func presentPhoto(_ model: DataModel, view: FavoriteViewController) {
+        view.present(DetailRouter.createModule(model: model), animated: true)
+    }
+    
 }

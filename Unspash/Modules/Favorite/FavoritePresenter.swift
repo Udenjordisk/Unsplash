@@ -14,7 +14,16 @@ class FavoritePresenter: ViewToPresenterFavoriteProtocol {
     var view: PresenterToViewFavoriteProtocol?
     var interactor: PresenterToInteractorFavoriteProtocol?
     var router: PresenterToRouterFavoriteProtocol?
+    
+    func showDetail(view: FavoriteViewController, index: Int) {
+        
+        guard let model = interactor?.manager.models[index] else { return }
+        router?.presentPhoto(model, view: view)
+    }
+    
 }
+
+
 
 extension FavoritePresenter: InteractorToPresenterFavoriteProtocol {
 
