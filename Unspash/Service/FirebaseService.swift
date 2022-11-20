@@ -40,7 +40,7 @@ class FirebaseService {
     }
 
     // MARK: Get documents from Firestore
-    private final func getFavoritePhotosID(completion: @escaping ([QueryDocumentSnapshot]) -> Void) {
+    final private func getFavoritePhotosID(completion: @escaping ([QueryDocumentSnapshot]) -> Void) {
         // User auth
         authUser { [weak self] UID in
 
@@ -54,23 +54,7 @@ class FirebaseService {
             })
         }
     }
-
-   // MARK: Create indeces array
-    final func loadFirestoreData(completion: @escaping ([String]) -> Void) {
-
-        var favoriteIndeces: Array = [String]()
-
-        FirebaseService.shared.getFavoritePhotosID { documents in
-
-            for index in 0...documents.count - 1 {
-                let id = documents[index].data().values.first as! String
-                favoriteIndeces.append(id)
-            }
-            completion(favoriteIndeces)
-
-        }
-    }
-
+    
     // MARK: Check like on photo (search photo id in Firestore)
     final func checkPhotoID(id: String, completion: @escaping (Bool) -> ()) {
 

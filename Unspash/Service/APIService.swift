@@ -19,12 +19,11 @@ class APIService {
 
     let apiAccessKey = "8S9Fu2tFnIdja3vHoH2XzXMQu3JbAxTrBqw0k2luTjM"
 
-    func getUnsplashData(_ searchTerm: String?, completion: @escaping ([DataModel]) -> Void) async {
-        // Check for search text
-        searchTerm == nil ? "" : searchTerm
-
+    func getUnsplashData(_ searchTerm: String?,
+                         completion: @escaping ([DataModel]) -> Void) async {
+        
         // fetch response
-        let fetchResponse: [DataModel]? = await fetchIt(searchTerm)
+        let fetchResponse: [DataModel]? = await fetchIt(searchTerm ?? "")
 
         // sending a response to interactor
         if let theResponse = fetchResponse {
@@ -33,7 +32,7 @@ class APIService {
 
     }
 
-    func fetchIt<T: Decodable>(_ searchTerm: String?) async -> T? {
+   private func fetchIt<T: Decodable>(_ searchTerm: String) async -> T? {
 
         let parameters = self.getParameters(searchTerm: searchTerm)
         let url = self.getURL(parameters: parameters)
@@ -60,7 +59,7 @@ class APIService {
     }
 
     // MARK: - Parameters
-    func getParameters(searchTerm: String?) -> [String: String] {
+    private func getParameters(searchTerm: String?) -> [String: String] {
         var parameters = [String: String]()
 
         parameters["query"] = searchTerm ?? ""
@@ -70,11 +69,13 @@ class APIService {
     }
 
     // MARK: - URL
-    func getURL(parameters: [String: String]) -> URL {
+    private func getURL(parameters: [String: String]) -> URL {
         var components = URLComponents()
+        
         components.scheme = "https"
         components.host = "api.unsplash.com"
         components.path = "/photos/random"
+        
         components.queryItems = parameters.map {URLQueryItem(name: $0, value: $1)}
         return components.url!
     }
