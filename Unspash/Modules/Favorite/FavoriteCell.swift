@@ -58,10 +58,10 @@ class FavoriteCell: UITableViewCell {
 //        setupLayout()
     }
 
-//    override func prepareForReuse() {
-//        super.prepareForReuse()
-//        ImageView.image = nil
-//    }
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        ImageView.image = nil
+    }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

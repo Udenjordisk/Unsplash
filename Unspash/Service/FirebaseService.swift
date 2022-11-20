@@ -66,6 +66,7 @@ final class FirebaseService {
                 print(error.localizedDescription)
             } else {
                 FavoritePhotoManager.shared.handlePhoto(snapshot: snapshot) { models in
+                    FavoritePhotoManager.shared.models.removeAll()
                     FavoritePhotoManager.shared.models.append(contentsOf: models)
                 }
             }

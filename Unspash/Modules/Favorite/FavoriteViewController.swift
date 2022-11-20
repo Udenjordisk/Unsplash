@@ -15,15 +15,7 @@ class FavoriteViewController: UIViewController {
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.addSubview(tableView)
-        tableView.frame = view.bounds
-        tableView.register(FavoriteCell.self,
-                           forCellReuseIdentifier: FavoriteCell.identifier)
-
-        tableView.rowHeight = 150
-        tableView.reloadData()
-        tableView.delegate = self
-        tableView.dataSource = self
+        setupTableView()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -32,6 +24,24 @@ class FavoriteViewController: UIViewController {
             tableView.reloadData()
         }
 
+    private func setupTableView() {
+        view.addSubview(tableView)
+        
+        tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        tableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor ).isActive = true
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        
+        tableView.register(FavoriteCell.self,
+                           forCellReuseIdentifier: FavoriteCell.identifier)
+        
+        tableView.rowHeight = 150
+        tableView.reloadData()
+        tableView.delegate = self
+        tableView.dataSource = self
+    }
+    
     // MARK: - Properties
     var presenter: ViewToPresenterFavoriteProtocol?
 
@@ -47,6 +57,8 @@ extension FavoriteViewController: UITableViewDelegate {
         if editingStyle == .delete {
             let cell = FavoritePhotoManager.shared.models.remove(at: indexPath.row)
             //Remove from database
+            FirebaseService.shared.removeFavoritePhoto(id: FavoritePhotoManager.shared.models[indexPath.row].id)
+            FirebaseService.shared.getFavoritePhotos()
             self.tableView.reloadData()
         }
     }
