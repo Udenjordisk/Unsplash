@@ -42,6 +42,7 @@ class MainPresenter: ViewToPresenterMainProtocol {
 
    final func viewDidLoaded() {
          interactor?.getData(nil)
+         
     }
 
     final func searchBarDidSearch(_ searchResult: String) {

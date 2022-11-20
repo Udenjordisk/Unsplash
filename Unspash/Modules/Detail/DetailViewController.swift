@@ -82,7 +82,12 @@ class DetailViewController: UIViewController {
     }
 
     final private func setupLikeButton() {
-        likeButton.setImage(UIImage(systemName: "heart"), for: .normal)
+        if isLiked{
+            likeButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+        } else {
+            likeButton.setImage(UIImage(systemName: "heart"), for: .normal)
+
+        }
         likeButton.rightAnchor.constraint(equalTo: infoView.rightAnchor, constant: -25).isActive = true
         likeButton.bottomAnchor.constraint(equalTo: authorLabel.bottomAnchor).isActive = true
         likeButton.addTarget(self, action: #selector(addToFavorite), for: .touchUpInside)
@@ -111,7 +116,7 @@ class DetailViewController: UIViewController {
 
         switch isLiked {
             case true:
-//            FirebaseService.shared.addFavoritePhoto(id: (model?.id.description)!)
+            FirebaseService.shared.addFavoritePhoto(id: (model?.id)!)
                 likeButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
             case false:
                 likeButton.setImage(UIImage(systemName: "heart"), for: .normal)
@@ -127,8 +132,10 @@ class DetailViewController: UIViewController {
 
 extension DetailViewController: PresenterToViewDetailProtocol {
 
-    final func showDetail(model: DataModel) {
+    final func showDetail(model: DataModel, isLiked: Bool) {
         self.model = model
+        self.isLiked = isLiked
+        
     }
 
 }

@@ -15,8 +15,8 @@ class DetailPresenter: ViewToPresenterDetailProtocol {
     var interactor: PresenterToInteractorDetailProtocol?
     var router: PresenterToRouterDetailProtocol?
 
-    func showDetail(model: DataModel) {
-        view?.showDetail(model: model)
+    func showDetail(model: DataModel, isLiked: Bool) {
+        view?.showDetail(model: model, isLiked: isLiked)
     }
 
 }
