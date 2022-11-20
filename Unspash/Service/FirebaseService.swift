@@ -34,9 +34,8 @@ class FirebaseService {
 
     // MARK: Add photo to favorites in Firestore database
     final func addFavoritePhoto(model: DataModel) {
-        
-        authUser { [weak self] UID in
-            self?.configureFB().collection("users").document(UID).collection("favorite_photos").document(model.id).setData([
+        let UID = Auth.auth().currentUser?.uid ?? ""
+        self.configureFB().collection("users").document(UID).collection("favorite_photos").document(model.id).setData([
                 "created_at": model.created_at,
                 "url_small": model.urls.small,
                 "url_full": model.urls.full,
@@ -45,40 +44,43 @@ class FirebaseService {
                 "downloads": model.downloads,
                 "likes": model.likes
             ])
-        }
+        
     }
 
     // MARK: Get documents from Firestore
-    final private func getFavoritePhotosID(completion: @escaping ([QueryDocumentSnapshot]) -> Void) {
+    func getFavoritePhotos() {
         // User auth
-        authUser { [weak self] UID in
-
+        let UID = Auth.auth().currentUser?.uid ?? ""
+        
             // Get favorite photos ID grom firestore database
-            self?.configureFB().collection("users").document(UID).collection("favorite_photos").getDocuments(completion: { snapshot, error in
+        self.configureFB().collection("users").document(UID).collection("favorite_photos").getDocuments(completion: { snapshot, error in
                 if let error = error {
                     print(error.localizedDescription)
                 } else {
-                    completion(snapshot!.documents)
+                    for document in snapshot!.documents {
+                                print("\(document.documentID) => \(document.data())")
+                            }
+                    
                 }
             })
-        }
+        
     }
     
     // MARK: Check like on photo (search photo id in Firestore)
     final func checkPhotoID(id: String, completion: @escaping (Bool) -> ()) {
 
-        authUser { [weak self] UID in
+        let UID = Auth.auth().currentUser?.uid ?? ""
+        
+           let docRef = configureFB().collection("users").document(UID).collection("favorite_photos").document(id)
 
-           let docRef = self?.configureFB().collection("users").document(UID).collection("favorite_photos").document(id)
-
-            docRef?.getDocument { document, _ in
+            docRef.getDocument { document, _ in
                 if let document = document, document.exists {
                     completion(true)
                 } else {
                     completion(false)
                 }
             }
-        }
+        
 
     }
 

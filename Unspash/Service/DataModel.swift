@@ -7,6 +7,11 @@
 
 import UIKit
 
+struct LocalStorage {
+    static let shared = LocalStorage()
+    var models = [DataModel]()
+}
+
 struct DataModel: Codable {
     var id: String
     var created_at: String?
