@@ -18,7 +18,7 @@ class DetailPresenter: ViewToPresenterDetailProtocol {
     func showDetail(model: DataModel) {
         view?.showDetail(model: model)
     }
-    
+
     func isLikedChanged(isLiked: Bool) {
         view?.isLikedChanged(isLiked: isLiked)
     }

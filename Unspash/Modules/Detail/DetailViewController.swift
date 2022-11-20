@@ -85,7 +85,7 @@ class DetailViewController: UIViewController {
         likeButton.rightAnchor.constraint(equalTo: infoView.rightAnchor, constant: -25).isActive = true
         likeButton.bottomAnchor.constraint(equalTo: authorLabel.bottomAnchor).isActive = true
         likeButton.addTarget(self, action: #selector(addToFavorite), for: .touchUpInside)
-        
+
         invalidateIsLikedButton()
     }
 
@@ -112,7 +112,7 @@ class DetailViewController: UIViewController {
 
         switch isLiked {
             case true:
-            //TODO: перенести в интерактор
+            // TODO: перенести в интерактор
             FirebaseService.shared.addFavoritePhoto(model: model!)
                 likeButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
             case false:
@@ -124,7 +124,7 @@ class DetailViewController: UIViewController {
     @objc func showAdditionalInfo(_ sender: UITapGestureRecognizer) {
         presenter?.router?.showAlert(model, view: self)
     }
-    
+
     private func invalidateIsLikedButton() {
         if isLiked {
             likeButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
@@ -142,7 +142,7 @@ extension DetailViewController: PresenterToViewDetailProtocol {
         self.model = model
 
     }
-    
+
     final func isLikedChanged(isLiked: Bool) {
         self.isLiked = isLiked
         invalidateIsLikedButton()

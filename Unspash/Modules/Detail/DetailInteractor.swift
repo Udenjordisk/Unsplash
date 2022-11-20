@@ -32,7 +32,6 @@ class DetailInteractor: PresenterToInteractorDetailProtocol {
         FirebaseService.shared.checkPhotoID(id: model.id) {[weak self] bool in
             self?.presenter?.isLikedChanged(isLiked: bool)
         }
-        
 
     }
 

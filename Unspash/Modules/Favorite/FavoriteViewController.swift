@@ -11,7 +11,7 @@ import UIKit
 class FavoriteViewController: UIViewController {
 
     let tableView = UITableView()
-    
+
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,11 +26,11 @@ class FavoriteViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
             super.viewWillAppear(animated)
         FirebaseService.shared.getFavoritePhotos()
-        
+
             tableView.reloadData()
         }
 
@@ -62,7 +62,7 @@ extension FavoriteViewController: UITableViewDelegate {
 }
 
 extension FavoriteViewController: UITableViewDataSource {
-    
+
     // MARK: - Table view data source
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
@@ -72,20 +72,18 @@ extension FavoriteViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "favoriteCell", for: indexPath)
         as! FavoriteCell
-        
+
         cell.imageView?.backgroundColor = .red
 //        let model = FavoriteListTempStorage.shared.favoriteModels[indexPath.row]
 //        cell.configur(model: model)
-        
+
         return cell
     }
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        let model = FavoriteListTempStorage.shared.favoriteModels[indexPath.row]
-//TO ROUTER
+// TO ROUTER
 //        self.navigationController?.pushViewController(DetailRouter.createModule(model: model), animated: true)
     }
-     
-    
-    
+
 }

@@ -21,7 +21,7 @@ class APIService {
 
     func getUnsplashData(_ searchTerm: String?,
                          completion: @escaping ([DataModel]) -> Void) async {
-        
+
         // fetch response
         let fetchResponse: [DataModel]? = await fetchIt(searchTerm ?? "")
 
@@ -71,11 +71,11 @@ class APIService {
     // MARK: - URL
     private func getURL(parameters: [String: String]) -> URL {
         var components = URLComponents()
-        
+
         components.scheme = "https"
         components.host = "api.unsplash.com"
         components.path = "/photos/random"
-        
+
         components.queryItems = parameters.map {URLQueryItem(name: $0, value: $1)}
         return components.url!
     }

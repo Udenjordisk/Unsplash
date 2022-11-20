@@ -8,11 +8,11 @@
 import UIKit
 
 class FavoriteCell: UITableViewCell {
-    
+
     static let identifier = "favoriteCell"
-    
+
     var model: DataModel?
-    
+
     private lazy var ImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -21,7 +21,7 @@ class FavoriteCell: UITableViewCell {
         imageView.layer.cornerRadius = 10
         return imageView
     }()
-    
+
     private lazy var authorLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 15, weight: .semibold)
@@ -29,33 +29,33 @@ class FavoriteCell: UITableViewCell {
         label.numberOfLines = 0
         return label
     }()
-    
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupUI()
     }
-    
+
     override func layoutSubviews() {
         super.layoutSubviews()
 //        setupLayout()
     }
-    
+
 //    override func prepareForReuse() {
 //        super.prepareForReuse()
 //        ImageView.image = nil
 //    }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     private func setupUI() {
-        
+
         contentView.backgroundColor = .white
-        
+
         contentView.addSubview(ImageView)
         contentView.addSubview(authorLabel)
-        
+
         ImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 15).isActive = true
         ImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor,constant: -15).isActive = true
         ImageView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 15).isActive = true
@@ -65,8 +65,7 @@ class FavoriteCell: UITableViewCell {
         authorLabel.leftAnchor.constraint(equalTo: ImageView.rightAnchor, constant: 10).isActive = true
         authorLabel.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 5/10).isActive = true
     }
-    
-    
+
 //    func configur(model: MainModel){
 //            self.model = model
 //
@@ -75,5 +74,5 @@ class FavoriteCell: UITableViewCell {
 //        ImageView.sd_setImage(with: url, placeholderImage: nil, options: [.progressiveLoad,.continueInBackground], completed: nil)
 //        authorLabel.text = model.user.name
 //    }
-     
+
     }
