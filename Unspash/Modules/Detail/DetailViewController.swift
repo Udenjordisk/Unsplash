@@ -82,7 +82,7 @@ class DetailViewController: UIViewController {
     }
 
     final private func setupLikeButton() {
-        if isLiked{
+        if isLiked {
             likeButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
         } else {
             likeButton.setImage(UIImage(systemName: "heart"), for: .normal)
@@ -135,7 +135,7 @@ extension DetailViewController: PresenterToViewDetailProtocol {
     final func showDetail(model: DataModel, isLiked: Bool) {
         self.model = model
         self.isLiked = isLiked
-        
+
     }
 
 }

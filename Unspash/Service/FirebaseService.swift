@@ -9,9 +9,10 @@ import UIKit
 import Firebase
 
 class FirebaseService {
-    
+
     static let shared = FirebaseService()
-    
+
+    // MARK: Init firestore
     private final func configureFB() -> Firestore {
         var db: Firestore!
         let settings = FirestoreSettings()
@@ -19,27 +20,30 @@ class FirebaseService {
         db = Firestore.firestore()
         return db
     }
-    
+
+    // MARK: Auth user
+    // TODO: Просто возвращать значение UID в string
     private final func authUser(completion: @escaping (String) -> Void) {
         Auth.auth().signInAnonymously { authResult, _ in
             // Anonymous authentification
             guard let user = authResult?.user else { return }
-//            let isAnonymous = user.isAnonymous  // true
             let uid = user.uid
             completion(uid)
         }
     }
-    
+
+    // MARK: Add photo to favorites in Firestore database
     final func addFavoritePhoto(id: String) {
         authUser { [weak self] UID in
             self?.configureFB().collection("users").document(UID).collection("favorite_photos").document(id).setData([:])
         }
     }
-    
-    final func getFavoritePhotosID(completion: @escaping ([QueryDocumentSnapshot]) -> Void) {
+
+    // MARK: Get documents from Firestore
+    private final func getFavoritePhotosID(completion: @escaping ([QueryDocumentSnapshot]) -> Void) {
         // User auth
         authUser { [weak self] UID in
-            
+
             // Get favorite photos ID grom firestore database
             self?.configureFB().collection("users").document(UID).collection("favorite_photos").getDocuments(completion: { snapshot, error in
                 if let error = error {
@@ -50,37 +54,39 @@ class FirebaseService {
             })
         }
     }
-    
+
+   // MARK: Create indeces array
     final func loadFirestoreData(completion: @escaping ([String]) -> Void) {
-        
+
         var favoriteIndeces: Array = [String]()
 
         FirebaseService.shared.getFavoritePhotosID { documents in
-            
+
             for index in 0...documents.count - 1 {
                 let id = documents[index].data().values.first as! String
                 favoriteIndeces.append(id)
             }
             completion(favoriteIndeces)
-            
+
         }
-        
     }
-    
+
+    // MARK: Check like on photo (search photo id in Firestore)
     final func checkPhotoID(id: String) {
-        
+
         authUser { [weak self] UID in
-            
+
            let docRef = self?.configureFB().collection("users").document(UID).collection("favorite_photos").document(id)
-            
+
             docRef?.getDocument { document, _ in
                 if let document = document, document.exists {
-                    print("Document exist")
+                    // TODO: Return true
                 } else {
-                    print("Document does not exist")
+                    // TODO: Return false
                 }
             }
         }
-        
+
     }
+
 }

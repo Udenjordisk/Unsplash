@@ -10,7 +10,6 @@ import UIKit
 import CHTCollectionViewWaterfallLayout
 import Firebase
 
-
 class MainViewController: UIViewController {
 
     // MARK: - Properties
@@ -27,7 +26,6 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         // Add a new document with a generated ID
         presenter?.viewDidLoaded()
-        
 
     }
 

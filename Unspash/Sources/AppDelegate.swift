@@ -5,7 +5,6 @@
 //  Created by Кирилл on 18.11.2022.
 //
 
-
 import UIKit
 import FirebaseCore
 
@@ -18,11 +17,9 @@ import FirebaseCore
         didFinishLaunchingWithOptions launchOptions:
                        [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
-          
 
         return true
       }
-    
 
     func application(_ application: UIApplication,
                      configurationForConnecting connectingSceneSession: UISceneSession,

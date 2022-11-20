@@ -14,9 +14,9 @@
             filePath = "Unspash/Service/FirebaseService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
-            landmarkName = "loadFirestoreData(completion:)"
+            startingLineNumber = "79"
+            endingLineNumber = "79"
+            landmarkName = "checkPhotoID(id:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -30,25 +30,25 @@
             filePath = "Unspash/Service/FirebaseService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "65"
-            endingLineNumber = "65"
-            landmarkName = "loadFirestoreData(completion:)"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
+            landmarkName = "checkPhotoID(id:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "DA769299-ADC9-44EA-BD97-DBB9CCA0ECB9"
+            uuid = "9C8614FF-9BF9-4F18-B5C5-EEFC132AC57A"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Unspash/Modules/Detail/DetailInteractor.swift"
+            filePath = "Unspash/Modules/Detail/DetailPresenter.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
-            landmarkName = "loadData()"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
+            landmarkName = "showDetail(model:isLiked:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

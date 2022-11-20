@@ -50,11 +50,10 @@ extension DetailRouter {
         let downloadAction = UIAlertAction(title: "Download", style: .default) { _ in
             UIImageWriteToSavedPhotosAlbum( view.imageView.image!, view, nil, nil)
         }
-        
+
         alert.addAction(okAction)
         alert.addAction(downloadAction)
 
         return alert
     }
 }
-

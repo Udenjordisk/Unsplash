@@ -12,7 +12,7 @@ class MainInteractor: PresenterToInteractorMainProtocol {
 
     // MARK: Properties
     var presenter: InteractorToPresenterMainProtocol?
-    
+
     final func getData(_ searchResult: String?) {
         Task {
             // get data 
@@ -22,5 +22,4 @@ class MainInteractor: PresenterToInteractorMainProtocol {
         }
     }
 
-    
 }
