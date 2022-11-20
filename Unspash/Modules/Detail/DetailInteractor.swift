@@ -27,9 +27,12 @@ class DetailInteractor: PresenterToInteractorDetailProtocol {
 
     func loadData() {
         guard let model = model else { return }
+        presenter?.showDetail(model: model)
         // TODO: Проверять есть ли лайк на фото и передавать в контроллер
-        FirebaseService.shared.checkPhotoID(id: model.id)
-        presenter?.showDetail(model: model, isLiked: false)
+        FirebaseService.shared.checkPhotoID(id: model.id) {[weak self] bool in
+            self?.presenter?.isLikedChanged(isLiked: bool)
+        }
+        
 
     }
 

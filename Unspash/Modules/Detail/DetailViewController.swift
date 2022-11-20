@@ -82,15 +82,11 @@ class DetailViewController: UIViewController {
     }
 
     final private func setupLikeButton() {
-        if isLiked {
-            likeButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-        } else {
-            likeButton.setImage(UIImage(systemName: "heart"), for: .normal)
-
-        }
         likeButton.rightAnchor.constraint(equalTo: infoView.rightAnchor, constant: -25).isActive = true
         likeButton.bottomAnchor.constraint(equalTo: authorLabel.bottomAnchor).isActive = true
         likeButton.addTarget(self, action: #selector(addToFavorite), for: .touchUpInside)
+        
+        invalidateIsLikedButton()
     }
 
     final private func setupInfoLabel() {
@@ -127,15 +123,28 @@ class DetailViewController: UIViewController {
     @objc func showAdditionalInfo(_ sender: UITapGestureRecognizer) {
         presenter?.router?.showAlert(model, view: self)
     }
+    
+    private func invalidateIsLikedButton() {
+        if isLiked {
+            likeButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+        } else {
+            likeButton.setImage(UIImage(systemName: "heart"), for: .normal)
+
+        }
+    }
 
 }
 
 extension DetailViewController: PresenterToViewDetailProtocol {
 
-    final func showDetail(model: DataModel, isLiked: Bool) {
+    final func showDetail(model: DataModel) {
         self.model = model
-        self.isLiked = isLiked
 
+    }
+    
+    final func isLikedChanged(isLiked: Bool) {
+        self.isLiked = isLiked
+        invalidateIsLikedButton()
     }
 
 }

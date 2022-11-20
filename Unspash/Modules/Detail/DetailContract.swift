@@ -10,7 +10,9 @@ import UIKit
 
 // MARK: View Output (Presenter -> View)
 protocol PresenterToViewDetailProtocol {
-    func showDetail(model: DataModel, isLiked: Bool)
+    func showDetail(model: DataModel)
+    
+    func isLikedChanged(isLiked: Bool)
 }
 
 // MARK: View Input (View -> Presenter)
@@ -32,7 +34,9 @@ protocol PresenterToInteractorDetailProtocol {
 
 // MARK: Interactor Output (Interactor -> Presenter)
 protocol InteractorToPresenterDetailProtocol {
-    func showDetail(model: DataModel, isLiked: Bool)
+    func showDetail(model: DataModel)
+    
+    func isLikedChanged(isLiked: Bool)
 
 }
 

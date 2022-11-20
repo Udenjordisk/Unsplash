@@ -72,7 +72,7 @@ class FirebaseService {
     }
 
     // MARK: Check like on photo (search photo id in Firestore)
-    final func checkPhotoID(id: String) {
+    final func checkPhotoID(id: String, completion: @escaping (Bool) -> ()) {
 
         authUser { [weak self] UID in
 
@@ -81,7 +81,9 @@ class FirebaseService {
             docRef?.getDocument { document, _ in
                 if let document = document, document.exists {
                     // TODO: Return true
+                    completion(true)
                 } else {
+                    completion(false)
                     // TODO: Return false
                 }
             }
