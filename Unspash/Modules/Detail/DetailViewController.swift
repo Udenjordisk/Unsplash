@@ -20,6 +20,8 @@ class DetailViewController: UIViewController {
     let authorLabel = UILabel()
     let likeButton = UIButton()
     let infoLabel = UILabel()
+    let lineView = UIView()
+    
     var isLiked = false
 
     // MARK: - Lifecycle Methods
@@ -51,19 +53,24 @@ class DetailViewController: UIViewController {
 
     final private func setupInfoView() {
         infoView.topAnchor.constraint(equalTo: view.bottomAnchor, constant: -150).isActive = true
-        infoView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: -10).isActive = true
-        infoView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 10).isActive = true
-        infoView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 10).isActive = true
+        infoView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        infoView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        infoView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         infoView.translatesAutoresizingMaskIntoConstraints = false
-        infoView.layer.borderWidth = 1.0
-        infoView.layer.borderColor = UIColor.black.cgColor
     }
 
     final private func setupInfoViewSubviews() {
         infoView.addSubview(authorLabel)
         infoView.addSubview(likeButton)
         infoView.addSubview(infoLabel)
-
+        infoView.addSubview(lineView)
+        
+        lineView.topAnchor.constraint(equalTo: infoView.topAnchor).isActive = true
+        lineView.heightAnchor.constraint(equalToConstant: 1).isActive = true
+        lineView.widthAnchor.constraint(equalToConstant: view.bounds.width).isActive = true
+        lineView.layer.borderWidth = 1.0
+        lineView.layer.borderColor = UIColor.black.cgColor
+        
         infoView.subviews.forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
 
         setupAuthorLabel()
