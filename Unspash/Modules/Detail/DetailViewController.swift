@@ -26,7 +26,7 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter?.viewDidLoaded()
-
+        
         setupUI()
     }
 
@@ -51,8 +51,9 @@ class DetailViewController: UIViewController {
 
     final private func setupInfoView() {
         infoView.topAnchor.constraint(equalTo: view.bottomAnchor, constant: -150).isActive = true
-        infoView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
-        infoView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        infoView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: -10).isActive = true
+        infoView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 10).isActive = true
+        infoView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 10).isActive = true
         infoView.translatesAutoresizingMaskIntoConstraints = false
         infoView.layer.borderWidth = 1.0
         infoView.layer.borderColor = UIColor.black.cgColor
