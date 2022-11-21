@@ -23,18 +23,20 @@ protocol ViewToPresenterMainProtocol {
     var searchController: UISearchController { get set }
     var collectionView: UICollectionView { get set }
     
+    func countOfItems() -> Int
     func viewDidLoaded()
     func searchBarDidSearch(_ searchResult: String)
-    func presentPhoto(_ model: DataModel, view: UIViewController)
+    func presentPhoto(index: Int, view: UIViewController)
     func configureCell(_ collectionView: UICollectionView,
-                       cellForItemAt indexPath: IndexPath, model: DataModel) -> UICollectionViewCell
+                       cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
 }
 
 // MARK: Interactor Input (Presenter -> Interactor)
 protocol PresenterToInteractorMainProtocol {
 
     var presenter: InteractorToPresenterMainProtocol? { get set }
-
+    var models: [DataModel] { get }
+    
     func getData(_ searchResult: String?)
     func backgroundGetFavoritePhotos()
 }
@@ -49,7 +51,4 @@ protocol PresenterToRouterMainProtocol {
     func presentPhoto(_ model: DataModel, view: UIViewController)
 }
 
-// MARK: Cell configurable
-protocol ConfigurableCell {
-    func configure(_ model: DataModel)
-}
+

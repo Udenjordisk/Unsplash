@@ -40,13 +40,3 @@ class CollectionViewCell: UICollectionViewCell {
     }
 
 }
-
-extension CollectionViewCell: ConfigurableCell {
-
-    func configure(_ model: DataModel) {
-
-        guard let url = URL(string: model.urls.small) else {return}
-        imageView.sd_setImage(with: url, placeholderImage: nil, options: [.continueInBackground, .highPriority,.progressiveLoad])
-
-    }
-}

@@ -14,9 +14,7 @@ class MainViewController: UIViewController {
 
     // MARK: - Properties
     var presenter: ViewToPresenterMainProtocol?
-    
-    lazy var models: [DataModel] = []
-    
+        
     weak var searchController: UISearchController?
     weak var collectionView: UICollectionView?
 
@@ -58,7 +56,6 @@ class MainViewController: UIViewController {
 extension MainViewController: PresenterToViewMainProtocol {
 
     func reloadCollection(_ models: [DataModel]) {
-        self.models = models
         DispatchQueue.main.async {
             self.collectionView?.reloadData()
         }
@@ -71,17 +68,17 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
 
     // Number of items in section
     func collectionView(_ collectionView: UICollectionView,
-                        numberOfItemsInSection section: Int) -> Int {
-        models.count
+                        numberOfItemsInSection section: Int) -> Int {        
+        return presenter?.countOfItems() ?? 0
     }
     // Cell for item
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        presenter?.configureCell(collectionView, cellForItemAt: indexPath, model: models[indexPath.row]) ?? UICollectionViewCell()
+        presenter?.configureCell(collectionView, cellForItemAt: indexPath) ?? UICollectionViewCell()
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        presenter?.presentPhoto(models[indexPath.row], view: self)
+        presenter?.presentPhoto(index: indexPath.row, view: self)
     }
 
 }

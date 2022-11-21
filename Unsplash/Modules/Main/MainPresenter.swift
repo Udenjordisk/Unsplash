@@ -47,14 +47,25 @@ class MainPresenter: ViewToPresenterMainProtocol {
         interactor?.getData(searchResult)
     }
 
-    final func presentPhoto(_ model: DataModel, view: UIViewController) {
+    final func presentPhoto(index: Int, view: UIViewController) {
+        
+        guard let model = interactor?.models[index] else { return }
+        
         router?.presentPhoto(model, view: view)
     }
     
+    func countOfItems() -> Int {
+        guard let count = interactor?.models.count else { return 0 }
+        
+        return count
+    }
+    
     func configureCell(_ collectionView: UICollectionView,
-                       cellForItemAt indexPath: IndexPath, model: DataModel) -> UICollectionViewCell {
+                       cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionViewCell", for: indexPath) as! CollectionViewCell
+        
+        guard let model = interactor?.models[indexPath.row] else { return UICollectionViewCell() }
         
         guard let url = URL(string: model.urls.small) else { return UICollectionViewCell() }
         
