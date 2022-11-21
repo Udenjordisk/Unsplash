@@ -25,7 +25,7 @@ class DetailPresenter: ViewToPresenterDetailProtocol {
         view?.isLikedChanged(isLiked: isLiked)
     }
     
-    private func invalidateIsLikedButton() {
+    func invalidateIsLikedButton() {
         
         guard let isLiked = view?.isLiked else { return }
         

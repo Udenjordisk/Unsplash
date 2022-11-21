@@ -19,7 +19,7 @@ protocol PresenterToViewDetailProtocol {
     
     func showDetail(url: URL, author: String)
     func isLikedChanged(isLiked: Bool)
-    func invalidateIsLikedButton()
+//    func invalidateIsLikedButton()
 
 }
 
@@ -33,6 +33,7 @@ protocol ViewToPresenterDetailProtocol {
     func viewDidLoaded()
     func showAlert(view: DetailViewController)
     func likeButtonTapped()
+    func invalidateIsLikedButton()
 }
 
 // MARK: Interactor Input (Presenter -> Interactor)

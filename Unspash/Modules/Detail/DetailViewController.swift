@@ -47,7 +47,7 @@ class DetailViewController: UIViewController {
     }
 
     final private func setupImageView() {
-        imageView.frame = CGRect(x: 0, y: 20, width: view.bounds.width, height: view.bounds.height/1.5)
+        imageView.frame = CGRect(x: 0, y: 100, width: view.bounds.width, height: view.bounds.height/1.5)
         imageView.contentMode = .scaleAspectFit
     }
 
@@ -90,11 +90,10 @@ class DetailViewController: UIViewController {
         likeButton.bottomAnchor.constraint(equalTo: authorLabel.bottomAnchor).isActive = true
         likeButton.addTarget(self, action: #selector(addToFavorite), for: .touchUpInside)
 
-        invalidateIsLikedButton()
+        presenter?.invalidateIsLikedButton()
     }
 
     final private func setupInfoLabel() {
-        infoLabel.text = "Show additional info"
         infoLabel.font = .boldSystemFont(ofSize: 18)
         infoLabel.textColor = .secondaryLabel
 
@@ -108,14 +107,6 @@ class DetailViewController: UIViewController {
         infoLabel.addGestureRecognizer(recognizer)
     }
     
-        func invalidateIsLikedButton() {
-        if isLiked {
-            likeButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-        } else {
-            likeButton.setImage(UIImage(systemName: "heart"), for: .normal)
-
-        }
-    }
     // MARK: - Tap actions
 
     @objc func addToFavorite() {
@@ -125,21 +116,22 @@ class DetailViewController: UIViewController {
     @objc func showAdditionalInfo(_ sender: UITapGestureRecognizer) {
         presenter?.showAlert(view: self)
     }
-
-
-
+    
 }
 
 extension DetailViewController: PresenterToViewDetailProtocol {
     
+    
     func showDetail(url: URL, author: String) {
         self.imageView.sd_setImage(with: url)
         self.authorLabel.text = author
+        self.infoLabel.text = "Show additional info"
+
     }
 
     func isLikedChanged(isLiked: Bool) {
         self.isLiked = isLiked
-        invalidateIsLikedButton()
+        presenter?.invalidateIsLikedButton()
     }
 
 }
