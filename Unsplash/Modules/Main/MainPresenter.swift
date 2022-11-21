@@ -50,6 +50,19 @@ class MainPresenter: ViewToPresenterMainProtocol {
     final func presentPhoto(_ model: DataModel, view: UIViewController) {
         router?.presentPhoto(model, view: view)
     }
+    
+    func configureCell(_ collectionView: UICollectionView,
+                       cellForItemAt indexPath: IndexPath, model: DataModel) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionViewCell", for: indexPath) as! CollectionViewCell
+        
+        guard let url = URL(string: model.urls.small) else { return UICollectionViewCell() }
+        
+        cell.imageView.sd_setImage(with: url, placeholderImage: nil, options: [.continueInBackground, .highPriority,.progressiveLoad])
+
+        return cell
+        
+    }
 }
 
 extension MainPresenter: InteractorToPresenterMainProtocol {

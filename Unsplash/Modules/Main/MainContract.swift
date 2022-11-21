@@ -26,6 +26,8 @@ protocol ViewToPresenterMainProtocol {
     func viewDidLoaded()
     func searchBarDidSearch(_ searchResult: String)
     func presentPhoto(_ model: DataModel, view: UIViewController)
+    func configureCell(_ collectionView: UICollectionView,
+                       cellForItemAt indexPath: IndexPath, model: DataModel) -> UICollectionViewCell
 }
 
 // MARK: Interactor Input (Presenter -> Interactor)

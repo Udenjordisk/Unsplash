@@ -27,7 +27,7 @@ class DetailRouter: PresenterToRouterDetailProtocol {
         return viewController
     }
 
-    //Show alert controller
+    // MARK: Show alert controller
     func showAlert(_ model: DataModel?, view: DetailViewController) {
         guard let model = model else { return }
         let likes = "Likes: \(model.likes.description)\n"

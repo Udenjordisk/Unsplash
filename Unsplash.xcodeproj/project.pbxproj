@@ -27,9 +27,6 @@
 		505EE8362928046A005B0DC0 /* FavoriteInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505EE8312928046A005B0DC0 /* FavoriteInteractor.swift */; };
 		5072902E292B154A004A93B2 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 5072902D292B154A004A93B2 /* SDWebImage */; };
 		50729031292B1AE6004A93B2 /* CHTCollectionViewWaterfallLayout in Frameworks */ = {isa = PBXBuildFile; productRef = 50729030292B1AE6004A93B2 /* CHTCollectionViewWaterfallLayout */; };
-		50729033292B1AE6004A93B2 /* CHTCollectionViewWaterfallLayoutObjC in Frameworks */ = {isa = PBXBuildFile; productRef = 50729032292B1AE6004A93B2 /* CHTCollectionViewWaterfallLayoutObjC */; };
-		5083C88C29290AF100DCFCCE /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5083C88B29290AF100DCFCCE /* CollectionView.swift */; };
-		5083C88E29290B2900DCFCCE /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5083C88D29290B2900DCFCCE /* SearchBar.swift */; };
 		5083C89429290ED800DCFCCE /* DetailContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5083C88F29290ED800DCFCCE /* DetailContract.swift */; };
 		5083C89529290ED800DCFCCE /* DetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5083C89029290ED800DCFCCE /* DetailPresenter.swift */; };
 		5083C89629290ED800DCFCCE /* DetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5083C89129290ED800DCFCCE /* DetailRouter.swift */; };
@@ -53,7 +50,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		500DDA452927FB7E0057FB75 /* Unspash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Unspash.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		500DDA452927FB7E0057FB75 /* Unsplash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Unsplash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		500DDA482927FB7E0057FB75 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		500DDA4A2927FB7E0057FB75 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		500DDA4C2927FB7E0057FB75 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
@@ -73,8 +70,6 @@
 		505EE82F2928046A005B0DC0 /* FavoriteRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRouter.swift; sourceTree = "<group>"; };
 		505EE8302928046A005B0DC0 /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		505EE8312928046A005B0DC0 /* FavoriteInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteInteractor.swift; sourceTree = "<group>"; };
-		5083C88B29290AF100DCFCCE /* CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
-		5083C88D29290B2900DCFCCE /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		5083C88F29290ED800DCFCCE /* DetailContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailContract.swift; sourceTree = "<group>"; };
 		5083C89029290ED800DCFCCE /* DetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPresenter.swift; sourceTree = "<group>"; };
 		5083C89129290ED800DCFCCE /* DetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRouter.swift; sourceTree = "<group>"; };
@@ -97,7 +92,6 @@
 				50A165E5292968E000AC5AD4 /* FirebaseDatabaseSwift in Frameworks */,
 				50A165E3292968E000AC5AD4 /* FirebaseDatabase in Frameworks */,
 				50729031292B1AE6004A93B2 /* CHTCollectionViewWaterfallLayout in Frameworks */,
-				50729033292B1AE6004A93B2 /* CHTCollectionViewWaterfallLayoutObjC in Frameworks */,
 				50A165ED292968E000AC5AD4 /* FirebaseStorage in Frameworks */,
 				5072902E292B154A004A93B2 /* SDWebImage in Frameworks */,
 				50A165DF292968E000AC5AD4 /* FirebaseAnalyticsSwift in Frameworks */,
@@ -114,7 +108,7 @@
 		500DDA3C2927FB7E0057FB75 = {
 			isa = PBXGroup;
 			children = (
-				500DDA472927FB7E0057FB75 /* Unspash */,
+				500DDA472927FB7E0057FB75 /* Unsplash */,
 				500DDA462927FB7E0057FB75 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -122,12 +116,12 @@
 		500DDA462927FB7E0057FB75 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				500DDA452927FB7E0057FB75 /* Unspash.app */,
+				500DDA452927FB7E0057FB75 /* Unsplash.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		500DDA472927FB7E0057FB75 /* Unspash */ = {
+		500DDA472927FB7E0057FB75 /* Unsplash */ = {
 			isa = PBXGroup;
 			children = (
 				50BFE45329282FCC00ABD125 /* .swiftlint.yml */,
@@ -137,7 +131,7 @@
 				505EE81F29280282005B0DC0 /* Sources */,
 				505EE81E29280278005B0DC0 /* Helpers */,
 			);
-			path = Unspash;
+			path = Unsplash;
 			sourceTree = "<group>";
 		};
 		505EE81E29280278005B0DC0 /* Helpers */ = {
@@ -187,7 +181,6 @@
 		505EE822292803EC005B0DC0 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				5083C88A29290ACD00DCFCCE /* Extensions */,
 				50BFE44829281CF000ABD125 /* MainCell.swift */,
 				505EE82329280453005B0DC0 /* MainContract.swift */,
 				505EE82429280453005B0DC0 /* MainPresenter.swift */,
@@ -196,15 +189,6 @@
 				505EE82729280453005B0DC0 /* MainInteractor.swift */,
 			);
 			path = Main;
-			sourceTree = "<group>";
-		};
-		5083C88A29290ACD00DCFCCE /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				5083C88B29290AF100DCFCCE /* CollectionView.swift */,
-				5083C88D29290B2900DCFCCE /* SearchBar.swift */,
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 		50A165F229297F3600AC5AD4 /* Detail */ = {
@@ -233,9 +217,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		500DDA442927FB7E0057FB75 /* Unspash */ = {
+		500DDA442927FB7E0057FB75 /* Unsplash */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 500DDA592927FB800057FB75 /* Build configuration list for PBXNativeTarget "Unspash" */;
+			buildConfigurationList = 500DDA592927FB800057FB75 /* Build configuration list for PBXNativeTarget "Unsplash" */;
 			buildPhases = (
 				500DDA412927FB7E0057FB75 /* Sources */,
 				500DDA422927FB7E0057FB75 /* Frameworks */,
@@ -246,7 +230,7 @@
 			);
 			dependencies = (
 			);
-			name = Unspash;
+			name = Unsplash;
 			packageProductDependencies = (
 				50A165DC292968E000AC5AD4 /* FirebaseAnalytics */,
 				50A165DE292968E000AC5AD4 /* FirebaseAnalyticsSwift */,
@@ -259,10 +243,9 @@
 				50A165EC292968E000AC5AD4 /* FirebaseStorage */,
 				5072902D292B154A004A93B2 /* SDWebImage */,
 				50729030292B1AE6004A93B2 /* CHTCollectionViewWaterfallLayout */,
-				50729032292B1AE6004A93B2 /* CHTCollectionViewWaterfallLayoutObjC */,
 			);
 			productName = Unspash;
-			productReference = 500DDA452927FB7E0057FB75 /* Unspash.app */;
+			productReference = 500DDA452927FB7E0057FB75 /* Unsplash.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -280,7 +263,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 500DDA402927FB7E0057FB75 /* Build configuration list for PBXProject "Unspash" */;
+			buildConfigurationList = 500DDA402927FB7E0057FB75 /* Build configuration list for PBXProject "Unsplash" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -298,7 +281,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				500DDA442927FB7E0057FB75 /* Unspash */,
+				500DDA442927FB7E0057FB75 /* Unsplash */,
 			);
 		};
 /* End PBXProject section */
@@ -345,7 +328,6 @@
 				5083C89429290ED800DCFCCE /* DetailContract.swift in Sources */,
 				5083C89629290ED800DCFCCE /* DetailRouter.swift in Sources */,
 				5083C89729290ED800DCFCCE /* DetailViewController.swift in Sources */,
-				5083C88C29290AF100DCFCCE /* CollectionView.swift in Sources */,
 				505EE8362928046A005B0DC0 /* FavoriteInteractor.swift in Sources */,
 				502722F9292840AA00F1ED50 /* Constants.swift in Sources */,
 				50BFE44C292822E800ABD125 /* APIService.swift in Sources */,
@@ -364,7 +346,6 @@
 				50BFE44929281CF000ABD125 /* MainCell.swift in Sources */,
 				500DDA4B2927FB7E0057FB75 /* SceneDelegate.swift in Sources */,
 				505EE82A29280453005B0DC0 /* MainRouter.swift in Sources */,
-				5083C88E29290B2900DCFCCE /* SearchBar.swift in Sources */,
 				50BFE4502928258B00ABD125 /* DataModel.swift in Sources */,
 				5015766C292A9F6800FA9C65 /* FavoritePhotoManager.swift in Sources */,
 				505EE8352928046A005B0DC0 /* FavoriteViewController.swift in Sources */,
@@ -509,7 +490,8 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = ZF9YFRTD7G;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Unspash/Helpers/Info.plist;
+				INFOPLIST_FILE = Unsplash/Helpers/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Unsplash;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -536,7 +518,8 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = ZF9YFRTD7G;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Unspash/Helpers/Info.plist;
+				INFOPLIST_FILE = Unsplash/Helpers/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Unsplash;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -557,7 +540,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		500DDA402927FB7E0057FB75 /* Build configuration list for PBXProject "Unspash" */ = {
+		500DDA402927FB7E0057FB75 /* Build configuration list for PBXProject "Unsplash" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				500DDA572927FB800057FB75 /* Debug */,
@@ -566,7 +549,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		500DDA592927FB800057FB75 /* Build configuration list for PBXNativeTarget "Unspash" */ = {
+		500DDA592927FB800057FB75 /* Build configuration list for PBXNativeTarget "Unsplash" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				500DDA5A2927FB800057FB75 /* Debug */,
@@ -614,11 +597,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 5072902F292B1AE6004A93B2 /* XCRemoteSwiftPackageReference "CHTCollectionViewWaterfallLayout" */;
 			productName = CHTCollectionViewWaterfallLayout;
-		};
-		50729032292B1AE6004A93B2 /* CHTCollectionViewWaterfallLayoutObjC */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 5072902F292B1AE6004A93B2 /* XCRemoteSwiftPackageReference "CHTCollectionViewWaterfallLayout" */;
-			productName = CHTCollectionViewWaterfallLayoutObjC;
 		};
 		50A165DC292968E000AC5AD4 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;

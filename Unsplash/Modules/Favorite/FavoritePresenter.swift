@@ -21,12 +21,16 @@ class FavoritePresenter: ViewToPresenterFavoriteProtocol {
                      _ indexPath: IndexPath) {
         
         if editingStyle == .delete {
+            
             //Remove from database
             FirebaseService.shared.removeFavoritePhoto(id: FavoritePhotoManager.shared.models[indexPath.row].id)
+            
             //Remove from table view
             let cell = FavoritePhotoManager.shared.models.remove(at: indexPath.row)
+            
             //Update favorite photos
             FirebaseService.shared.getFavoritePhotos()
+            
             //Reload table view
             tableView.reloadData()
         }

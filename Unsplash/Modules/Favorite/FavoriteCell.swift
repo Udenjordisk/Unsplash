@@ -11,8 +11,6 @@ class FavoriteCell: UITableViewCell {
 
     static let identifier = "favoriteCell"
 
-//    var model: DataModel?
-
     lazy var ImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -51,11 +49,6 @@ class FavoriteCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupUI()
-    }
-
-    override func layoutSubviews() {
-        super.layoutSubviews()
-//        setupLayout()
     }
 
     override func prepareForReuse() {
