@@ -20,9 +20,6 @@ protocol ViewToPresenterMainProtocol {
     var interactor: PresenterToInteractorMainProtocol? { get set }
     var router: PresenterToRouterMainProtocol? { get set }
 
-    var searchController: UISearchController { get set }
-    var collectionView: UICollectionView { get set }
-    
     func countOfItems() -> Int
     func viewDidLoaded()
     func searchBarDidSearch(_ searchResult: String)

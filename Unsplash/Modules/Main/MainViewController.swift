@@ -15,8 +15,8 @@ class MainViewController: UIViewController {
     // MARK: - Properties
     var presenter: ViewToPresenterMainProtocol?
         
-    weak var searchController: UISearchController?
-    weak var collectionView: UICollectionView?
+    lazy var searchController = MainViews.shared.searchController
+    lazy var collectionView = MainViews.shared.collectionView
 
     
     // MARK: - Lifecycle Methods
@@ -36,16 +36,14 @@ class MainViewController: UIViewController {
     private final func setupUI() {
 
         // Setup search bar
-        self.searchController = presenter?.searchController
-        self.searchController?.searchBar.delegate = self
+        self.searchController.searchBar.delegate = self
         navigationItem.searchController = searchController
 
         // Setup collection view
-        self.collectionView = presenter?.collectionView
-        collectionView?.frame = view.bounds
-        collectionView?.delegate = self
-        collectionView?.dataSource = self
-        view.addSubview(collectionView!)
+        collectionView.frame = view.bounds
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        view.addSubview(collectionView)
 
     }
 
@@ -57,7 +55,7 @@ extension MainViewController: PresenterToViewMainProtocol {
 
     func reloadCollection(_ models: [DataModel]) {
         DispatchQueue.main.async {
-            self.collectionView?.reloadData()
+            self.collectionView.reloadData()
         }
     }
 
@@ -99,7 +97,7 @@ extension MainViewController: CHTCollectionViewDelegateWaterfallLayout {
 extension MainViewController: UISearchBarDelegate {
     // when user click search button
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        self.searchController?.searchBar.endEditing(true)
+        self.searchController.searchBar.endEditing(true)
         presenter?.searchBarDidSearch(searchBar.searchTextField.text!)
     }
 }
