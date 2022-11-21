@@ -25,3 +25,6 @@ The "favorite photo" screen is a table of cells with a mini-version of the image
 Если продолжать работу над проектом, я бы добавил:
 1. Локализацию.
 2. Возможность поставить на раздел избранных фото код-пароль и FaceID.
+
+![Unsplash](https://user-images.githubusercontent.com/106689083/202957440-31b176f0-3604-4603-b0c2-79dd02d09778.png)
+
