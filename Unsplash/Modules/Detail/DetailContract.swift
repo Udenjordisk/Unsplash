@@ -10,7 +10,6 @@ import UIKit
 
 // MARK: View Output (Presenter -> View)
 protocol PresenterToViewDetailProtocol {
-    var isLiked: Bool { get set }
     var imageView: UIImageView { get }
     var infoView: UIView { get }
     var authorLabel: UILabel { get }
@@ -39,18 +38,20 @@ protocol ViewToPresenterDetailProtocol {
 // MARK: Interactor Input (Presenter -> Interactor)
 protocol PresenterToInteractorDetailProtocol {
 
-    var model: DataModel? { get set }
+    var model: DataModel? { get }
+    var isLiked: Bool { get set }
     var presenter: InteractorToPresenterDetailProtocol? { get set }
     
     func loadData()
     func addFavoritePhoto()
     func removeFavoritePhoto()
+    
 }
 
 // MARK: Interactor Output (Interactor -> Presenter)
 protocol InteractorToPresenterDetailProtocol {
     func completeLoad(model: DataModel)
-    func isLikedChanged(isLiked: Bool)
+    func invalidateIsLikedButton()
 }
 
 // MARK: Router Input (Presenter -> Router)

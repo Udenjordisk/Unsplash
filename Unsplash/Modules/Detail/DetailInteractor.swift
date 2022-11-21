@@ -13,6 +13,9 @@ final class DetailInteractor: PresenterToInteractorDetailProtocol {
     
     // MARK: Properties
     var model: DataModel?
+    
+    var isLiked = false
+    
     var presenter: InteractorToPresenterDetailProtocol?
     
     // MARK: Init
@@ -31,13 +34,15 @@ final class DetailInteractor: PresenterToInteractorDetailProtocol {
         presenter?.completeLoad(model: model)
         // Check for like
         FirebaseService.shared.checkPhotoID(id: model.id) {[weak self] bool in
-            self?.presenter?.isLikedChanged(isLiked: bool)
+            self?.isLiked = bool
+            self?.presenter?.invalidateIsLikedButton()
         }
     }
 
     // MARK: Like photo
     func addFavoritePhoto() {
         guard let model = model else { return }
+        self.isLiked = true
         FirebaseService.shared.addFavoritePhoto(model: model)
         FirebaseService.shared.getFavoritePhotos()
     }
@@ -45,6 +50,7 @@ final class DetailInteractor: PresenterToInteractorDetailProtocol {
     // MARK: Dislike photo
     func removeFavoritePhoto() {
         guard let model = model else { return }
+        self.isLiked = false
         FirebaseService.shared.removeFavoritePhoto(id: model.id)
         FirebaseService.shared.getFavoritePhotos()
     }
