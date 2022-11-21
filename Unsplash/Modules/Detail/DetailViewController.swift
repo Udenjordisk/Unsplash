@@ -16,11 +16,12 @@ class DetailViewController: UIViewController {
     var presenter: ViewToPresenterDetailProtocol?
 
     lazy var imageView = UIImageView()
+    lazy var likeButton = UIButton()
     lazy var infoView = UIView()
-    let authorLabel = UILabel()
-    let likeButton = UIButton()
-    let infoLabel = UILabel()
-    lazy var lineView = UIView()
+    
+    let lineView = DetailViews.shared.lineView
+    let authorLabel = DetailViews.shared.authorLabel
+    let infoLabel = DetailViews.shared.infoLabel
     
     var isLiked = false
 
@@ -61,26 +62,26 @@ class DetailViewController: UIViewController {
 
     final private func setupInfoViewSubviews() {
         infoView.addSubview(authorLabel)
-        infoView.addSubview(likeButton)
         infoView.addSubview(infoLabel)
         infoView.addSubview(lineView)
-        
-        lineView.topAnchor.constraint(equalTo: infoView.topAnchor).isActive = true
-        lineView.heightAnchor.constraint(equalToConstant: 1).isActive = true
-        lineView.widthAnchor.constraint(equalToConstant: view.bounds.width).isActive = true
-        lineView.layer.borderWidth = 1.0
-        lineView.layer.borderColor = UIColor.black.cgColor
+        infoView.addSubview(likeButton)
         
         infoView.subviews.forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
-
+        
+        // Setup subviews
+        setupLineView()
         setupAuthorLabel()
         setupLikeButton()
         setupInfoLabel()
-
     }
 
+    private func setupLineView() {
+        lineView.topAnchor.constraint(equalTo: infoView.topAnchor).isActive = true
+        lineView.heightAnchor.constraint(equalToConstant: 1).isActive = true
+        lineView.widthAnchor.constraint(equalToConstant: view.bounds.width).isActive = true
+    }
+    
     final private func setupAuthorLabel() {
-        authorLabel.numberOfLines = 1
         authorLabel.topAnchor.constraint(equalTo: infoView.topAnchor, constant: 10).isActive = true
         authorLabel.leftAnchor.constraint(equalTo: infoView.leftAnchor, constant: 20).isActive = true
     }
@@ -94,14 +95,9 @@ class DetailViewController: UIViewController {
     }
 
     final private func setupInfoLabel() {
-        infoLabel.font = .boldSystemFont(ofSize: 18)
-        infoLabel.textColor = .secondaryLabel
-
         infoLabel.topAnchor.constraint(equalTo: authorLabel.bottomAnchor, constant: 10).isActive = true
         infoLabel.leftAnchor.constraint(equalTo: authorLabel.leftAnchor).isActive = true
         infoLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
-
-        infoLabel.isUserInteractionEnabled = true
 
         let recognizer = UITapGestureRecognizer(target: self, action: #selector(showAdditionalInfo(_:)))
         infoLabel.addGestureRecognizer(recognizer)
