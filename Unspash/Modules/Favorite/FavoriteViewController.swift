@@ -54,9 +54,10 @@ extension FavoriteViewController: PresenterToViewFavoriteProtocol {
 extension FavoriteViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let cell = FavoritePhotoManager.shared.models.remove(at: indexPath.row)
+            
             //Remove from database
             FirebaseService.shared.removeFavoritePhoto(id: FavoritePhotoManager.shared.models[indexPath.row].id)
+            let cell = FavoritePhotoManager.shared.models.remove(at: indexPath.row)
             FirebaseService.shared.getFavoritePhotos()
             self.tableView.reloadData()
         }
