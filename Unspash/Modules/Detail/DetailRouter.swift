@@ -27,18 +27,9 @@ class DetailRouter: PresenterToRouterDetailProtocol {
         return viewController
     }
 
+    //Show alert controller
     func showAlert(_ model: DataModel?, view: DetailViewController) {
         guard let model = model else { return }
-
-        view.show(showAlert(model, view), sender: self)
-    }
-
-}
-
-extension DetailRouter {
-
-    func showAlert(_ model: DataModel,_ view: DetailViewController) -> UIAlertController {
-
         let likes = "Likes: \(model.likes.description)\n"
         let downloads = "Downloads: \(model.downloads?.description ?? "0")\n"
         let location = "Location: \(model.location?.name ?? "No location")\n"
@@ -54,6 +45,7 @@ extension DetailRouter {
         alert.addAction(okAction)
         alert.addAction(downloadAction)
 
-        return alert
+        view.present(alert, animated: true)
     }
+
 }

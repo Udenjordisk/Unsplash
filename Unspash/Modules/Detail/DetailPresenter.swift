@@ -24,6 +24,19 @@ class DetailPresenter: ViewToPresenterDetailProtocol {
     func isLikedChanged(isLiked: Bool) {
         view?.isLikedChanged(isLiked: isLiked)
     }
+    
+    private func invalidateIsLikedButton() {
+        
+        guard let isLiked = view?.isLiked else { return }
+        
+        if isLiked {
+            view?.likeButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+        } else {
+            view?.likeButton.setImage(UIImage(systemName: "heart"), for: .normal)
+        }
+        
+    }
+    
     func likeButtonTapped() {
         
         view?.isLiked.toggle()
@@ -39,7 +52,7 @@ class DetailPresenter: ViewToPresenterDetailProtocol {
             
         }
         
-        view?.invalidateIsLikedButton()
+        invalidateIsLikedButton()
 
     }
 }
