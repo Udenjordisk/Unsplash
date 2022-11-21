@@ -15,16 +15,22 @@ class DetailPresenter: ViewToPresenterDetailProtocol {
     var interactor: PresenterToInteractorDetailProtocol?
     var router: PresenterToRouterDetailProtocol?
     
+    
+    // MARK: View methods
+    
+    // Complete load
     func completeLoad(model: DataModel) {
         guard let url = URL(string: model.urls.small) else { return }
         let author = model.user.name
         view?.showDetail(url: url, author: author)
     }
 
+    // Like or dislike
     func isLikedChanged(isLiked: Bool) {
         view?.isLikedChanged(isLiked: isLiked)
     }
     
+    //
     func invalidateIsLikedButton() {
         
         guard let isLiked = view?.isLiked else { return }
@@ -40,20 +46,15 @@ class DetailPresenter: ViewToPresenterDetailProtocol {
     func likeButtonTapped() {
         
         view?.isLiked.toggle()
-        
         guard let liked = view?.isLiked else { return }
         
         switch liked {
         case true:
             interactor?.addFavoritePhoto()
-            
         case false:
             interactor?.removeFavoritePhoto()
-            
         }
-        
         invalidateIsLikedButton()
-
     }
 }
 

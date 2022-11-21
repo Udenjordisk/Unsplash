@@ -10,21 +10,21 @@ import UIKit
 import SDWebImage
 
 class DetailInteractor: PresenterToInteractorDetailProtocol {
-
-    var model: DataModel?
-
+    
     // MARK: Properties
+    var model: DataModel?
     var presenter: InteractorToPresenterDetailProtocol?
+    
+    // MARK: Init
     init(_ model: DataModel) {
-
         self.model = model
-
     }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
+    // MARK: Check if image has been liked
     func loadData() {
         guard let model = model else { return }
         // Show data
@@ -35,11 +35,14 @@ class DetailInteractor: PresenterToInteractorDetailProtocol {
         }
     }
 
+    // MARK: Like photo
     func addFavoritePhoto() {
         guard let model = model else { return }
         FirebaseService.shared.addFavoritePhoto(model: model)
         FirebaseService.shared.getFavoritePhotos()
     }
+    
+    // MARK: Dislike photo
     func removeFavoritePhoto() {
         guard let model = model else { return }
         FirebaseService.shared.removeFavoritePhoto(id: model.id)

@@ -121,7 +121,6 @@ class DetailViewController: UIViewController {
 
 extension DetailViewController: PresenterToViewDetailProtocol {
     
-    
     func showDetail(url: URL, author: String) {
         self.imageView.sd_setImage(with: url)
         self.authorLabel.text = author
