@@ -9,7 +9,7 @@
 import UIKit
 import SDWebImage
 
-class DetailInteractor: PresenterToInteractorDetailProtocol {
+final class DetailInteractor: PresenterToInteractorDetailProtocol {
     
     // MARK: Properties
     var model: DataModel?

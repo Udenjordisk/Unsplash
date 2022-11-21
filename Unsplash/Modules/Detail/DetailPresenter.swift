@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DetailPresenter: ViewToPresenterDetailProtocol {
+final class DetailPresenter: ViewToPresenterDetailProtocol {
 
     // MARK: Properties
     var view: PresenterToViewDetailProtocol?

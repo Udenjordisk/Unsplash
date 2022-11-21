@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class DetailRouter: PresenterToRouterDetailProtocol {
+final class DetailRouter: PresenterToRouterDetailProtocol {
 
     // MARK: Static methods
     static func createModule(model: DataModel) -> UIViewController {

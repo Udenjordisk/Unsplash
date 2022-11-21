@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DetailViews: UIView {
+final class DetailViews: UIView {
     
     static let shared = DetailViews()
         
@@ -31,13 +31,5 @@ class DetailViews: UIView {
             view.isUserInteractionEnabled = true
             return view
         }()
-    
-    lazy var infoView: UIView = {
-        let view = UIView()
-        // Add subviews
-        
-        
-        return view
-    }()
     
 }
