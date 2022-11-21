@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import CHTCollectionViewWaterfallLayout
 
-class MainViewController: UIViewController {
+final class MainViewController: UIViewController {
 
     // MARK: - Properties
     var presenter: ViewToPresenterMainProtocol?
@@ -33,7 +33,8 @@ class MainViewController: UIViewController {
        setupUI()
     }
 
-    private final func setupUI() {
+    // MARK: Setup UI
+    private func setupUI() {
 
         // Setup search bar
         self.searchController.searchBar.delegate = self

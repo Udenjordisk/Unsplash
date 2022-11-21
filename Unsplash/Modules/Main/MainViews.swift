@@ -11,10 +11,8 @@ import CHTCollectionViewWaterfallLayout
 class MainViews {
     
     static let shared = MainViews()
-    
-    lazy var view = MainViewController()
-    
-    // Search controller
+        
+    // MARK: - Search controller
    lazy var searchController: UISearchController = {
             let searchController = UISearchController(searchResultsController: nil)
             searchController.searchBar.placeholder = "For example: Cute puppies"
@@ -23,7 +21,7 @@ class MainViews {
             return searchController
         }()
     
-    // Collection view
+    // MARK: - Collection view
     lazy var collectionView: UICollectionView = {
 
         let layout = CHTCollectionViewWaterfallLayout()

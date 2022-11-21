@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FavoriteViewController: UIViewController {
+final class FavoriteViewController: UIViewController {
 
     let tableView = UITableView()
     
@@ -38,7 +38,7 @@ class FavoriteViewController: UIViewController {
         tableView.register(FavoriteCell.self,
                            forCellReuseIdentifier: FavoriteCell.identifier)
         
-        tableView.rowHeight = 150
+        tableView.rowHeight = Constants.rowHeight
         tableView.reloadData()
         tableView.delegate = self
         tableView.dataSource = self

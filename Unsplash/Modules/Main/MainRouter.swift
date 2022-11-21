@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class MainRouter: PresenterToRouterMainProtocol {
+final class MainRouter: PresenterToRouterMainProtocol {
 
     // MARK: Static methods
     static func createModule() -> UIViewController {
@@ -27,6 +27,7 @@ class MainRouter: PresenterToRouterMainProtocol {
         return viewController
     }
 
+    // MARK: Present detail
     func presentPhoto(_ model: DataModel, view: UIViewController) {
         let detailVC = DetailRouter.createModule(model: model)
         detailVC.hidesBottomBarWhenPushed = true

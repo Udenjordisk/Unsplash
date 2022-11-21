@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FavoritePresenter: ViewToPresenterFavoriteProtocol {
+final class FavoritePresenter: ViewToPresenterFavoriteProtocol {
 
     // MARK: Properties
     var view: PresenterToViewFavoriteProtocol?

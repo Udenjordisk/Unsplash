@@ -9,36 +9,39 @@
 import UIKit
 import CHTCollectionViewWaterfallLayout
 
-class MainPresenter: ViewToPresenterMainProtocol {    
+final class MainPresenter: ViewToPresenterMainProtocol {
 
     // MARK: Properties
     var view: PresenterToViewMainProtocol?
     var interactor: PresenterToInteractorMainProtocol?
     var router: PresenterToRouterMainProtocol?
     
-   final func viewDidLoaded() {
+    // MARK: View did loaded
+    func viewDidLoaded() {
          interactor?.getData(nil)
          interactor?.backgroundGetFavoritePhotos()
 
     }
-
-    final func searchBarDidSearch(_ searchResult: String) {
+    // MARK: Search bar did search
+    func searchBarDidSearch(_ searchResult: String) {
         interactor?.getData(searchResult)
     }
 
-    final func presentPhoto(index: Int, view: UIViewController) {
+    // MARK: Present detail
+    func presentPhoto(index: Int, view: UIViewController) {
         
         guard let model = interactor?.models[index] else { return }
-        
         router?.presentPhoto(model, view: view)
     }
-    
+
+    // MARK: Count of items in collection view
     func countOfItems() -> Int {
         guard let count = interactor?.models.count else { return 0 }
         
         return count
     }
-    
+
+    // MARK: Configure collection view cell
     func configureCell(_ collectionView: UICollectionView,
                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         

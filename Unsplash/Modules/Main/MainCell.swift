@@ -8,7 +8,7 @@
 import UIKit
 import SDWebImage
 
-class CollectionViewCell: UICollectionViewCell {
+final class CollectionViewCell: UICollectionViewCell {
 
     // MARK: - Properties
 

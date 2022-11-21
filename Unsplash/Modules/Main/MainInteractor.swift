@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Firebase
 
 class MainInteractor: PresenterToInteractorMainProtocol {
 
@@ -19,15 +18,14 @@ class MainInteractor: PresenterToInteractorMainProtocol {
     final func getData(_ searchResult: String?) {
         Task {
             // get data 
-            await APIService.shared.getUnsplashData(searchResult) { models in
-                self.models = models
-                self.presenter?.dataDidLoaded(models)
+            await APIService.shared.getUnsplashData(searchResult) { [weak self] models in
+                self?.models = models
+                self?.presenter?.dataDidLoaded(models)
             }
         }
     }
     
-    func backgroundGetFavoritePhotos(){
-        
+    final func backgroundGetFavoritePhotos(){
         FirebaseService.shared.getFavoritePhotos()
     }
 

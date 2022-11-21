@@ -8,7 +8,7 @@
 
 import Foundation
 
-class FavoriteInteractor: PresenterToInteractorFavoriteProtocol {
+final class FavoriteInteractor: PresenterToInteractorFavoriteProtocol {
 
     // MARK: Properties
     var presenter: InteractorToPresenterFavoriteProtocol?

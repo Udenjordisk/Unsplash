@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class FavoriteRouter: PresenterToRouterFavoriteProtocol {
+final class FavoriteRouter: PresenterToRouterFavoriteProtocol {
 
     // MARK: Static methods
     static func createModule() -> UIViewController {

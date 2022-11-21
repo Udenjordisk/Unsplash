@@ -134,12 +134,12 @@
 		500DDA472927FB7E0057FB75 /* Unsplash */ = {
 			isa = PBXGroup;
 			children = (
+				505EE82029280289005B0DC0 /* Modules */,
+				505EE81E29280278005B0DC0 /* Helpers */,
+				50BFE44A292822BC00ABD125 /* Service */,
+				505EE81F29280282005B0DC0 /* Sources */,
 				50BFE45329282FCC00ABD125 /* .swiftlint.yml */,
 				50A165EE29296EB300AC5AD4 /* GoogleService-Info.plist */,
-				50BFE44A292822BC00ABD125 /* Service */,
-				505EE82029280289005B0DC0 /* Modules */,
-				505EE81F29280282005B0DC0 /* Sources */,
-				505EE81E29280278005B0DC0 /* Helpers */,
 			);
 			path = Unsplash;
 			sourceTree = "<group>";
@@ -512,10 +512,11 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Unsplash/Helpers/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Unsplash;
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Our application needs permission to write photos...";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -540,10 +541,11 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Unsplash/Helpers/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Unsplash;
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Our application needs permission to write photos...";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
