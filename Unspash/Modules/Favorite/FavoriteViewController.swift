@@ -50,37 +50,25 @@ extension FavoriteViewController: PresenterToViewFavoriteProtocol {
     // TODO: Implement View Output Methods
 }
 
-// MARK: - Table view delegate
-extension FavoriteViewController: UITableViewDelegate {
+
+extension FavoriteViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    // MARK: - Table view delegate
+    // Remove
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            
-            //Remove from database
-            FirebaseService.shared.removeFavoritePhoto(id: FavoritePhotoManager.shared.models[indexPath.row].id)
-            let cell = FavoritePhotoManager.shared.models.remove(at: indexPath.row)
-            FirebaseService.shared.getFavoritePhotos()
-            self.tableView.reloadData()
-        }
+        presenter?.deletePhoto(tableView, editingStyle, indexPath)
     }
-}
-
-extension FavoriteViewController: UITableViewDataSource {
-
+    
     // MARK: - Table view data source
+    // Count
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        FavoritePhotoManager.shared.models.count
+        presenter?.countOfItems() ?? 0
     }
-
+    // Cell
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "favoriteCell", for: indexPath)
-        as! FavoriteCell
-
-        let model = FavoritePhotoManager.shared.models[indexPath.row]
-        
-        cell.configure(model: model)
-        return cell
+        return presenter?.configureCell(tableView, indexPath) ?? UITableViewCell()
     }
-
+    // Tap
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //To router
         presenter?.showDetail(view: self, index: indexPath.row)

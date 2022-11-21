@@ -13,7 +13,7 @@ class FavoriteCell: UITableViewCell {
 
 //    var model: DataModel?
 
-    private lazy var ImageView: UIImageView = {
+    lazy var ImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFill
@@ -22,7 +22,7 @@ class FavoriteCell: UITableViewCell {
         return imageView
     }()
 
-    private lazy var authorLabel: UILabel = {
+    lazy var authorLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 15, weight: .semibold)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -30,7 +30,7 @@ class FavoriteCell: UITableViewCell {
         return label
     }()
 
-    private lazy var likedLabel: UILabel = {
+    lazy var likedLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 15, weight: .regular)
         label.textColor = .secondaryLabel
@@ -39,7 +39,7 @@ class FavoriteCell: UITableViewCell {
         return label
     }()
 
-    private lazy var locationLabel: UILabel = {
+    lazy var locationLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 15, weight: .regular)
         label.textColor = .secondaryLabel
@@ -96,19 +96,4 @@ class FavoriteCell: UITableViewCell {
         locationLabel.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 5/10).isActive = true
     }
 
-    func configure(model: DataModel){
-//            self.model = model
-
-        guard let url = URL(string: model.urls.small) else {return}
-
-        ImageView.sd_setImage(with: url, placeholderImage: nil, options: [.progressiveLoad,.continueInBackground], completed: nil)
-        
-        authorLabel.text = model.user.name
-        
-        likedLabel.text = "Likes: " + model.likes.description
-        if model.location?.name != "" {
-            locationLabel.text = "Location: \n" + (model.location?.name)!
-        }
-    }
-
-    }
+}

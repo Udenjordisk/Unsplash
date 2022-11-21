@@ -13,6 +13,6 @@ class FavoriteInteractor: PresenterToInteractorFavoriteProtocol {
     // MARK: Properties
     var presenter: InteractorToPresenterFavoriteProtocol?
     
-    var manager = FavoritePhotoManager.shared
+    var photoManager = FavoritePhotoManager.shared
     
 }
