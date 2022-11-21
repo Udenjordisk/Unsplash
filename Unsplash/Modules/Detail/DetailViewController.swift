@@ -16,11 +16,11 @@ class DetailViewController: UIViewController {
     var presenter: ViewToPresenterDetailProtocol?
 
     lazy var imageView = UIImageView()
-    let infoView = UIView()
+    lazy var infoView = UIView()
     let authorLabel = UILabel()
     let likeButton = UIButton()
     let infoLabel = UILabel()
-    let lineView = UIView()
+    lazy var lineView = UIView()
     
     var isLiked = false
 
