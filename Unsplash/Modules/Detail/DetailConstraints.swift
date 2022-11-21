@@ -28,7 +28,7 @@ extension DetailViewController {
     }
 
     private func setupInfoView() {
-        infoView.topAnchor.constraint(equalTo: view.bottomAnchor, constant: -150).isActive = true
+        infoView.topAnchor.constraint(equalTo: view.bottomAnchor, constant: -100).isActive = true
         infoView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         infoView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         infoView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Firebase
 
 class MainInteractor: PresenterToInteractorMainProtocol {
 
@@ -26,6 +27,7 @@ class MainInteractor: PresenterToInteractorMainProtocol {
     }
     
     func backgroundGetFavoritePhotos(){
+        
         FirebaseService.shared.getFavoritePhotos()
     }
 

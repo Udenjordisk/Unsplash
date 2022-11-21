@@ -12,8 +12,8 @@ final class FirebaseService {
 
     static let shared = FirebaseService()
 
-    var UID = Auth.auth().currentUser?.uid ?? ""
-
+    var UID = ""
+    
     // MARK: - Init firestore
     private func configureFB() -> Firestore {
         var db: Firestore!
@@ -23,22 +23,28 @@ final class FirebaseService {
         return db
     }
 
-    // MARK: - Auth user
-    private func authUser(completion: @escaping (String) -> Void) {
-        Auth.auth().signInAnonymously { authResult, _ in
-            // Anonymous authentification
-            guard let user = authResult?.user else { return }
-            let uid = user.uid
-            completion(uid)
+    func checkAuth() {
+        
+        if Auth.auth().currentUser != nil {
+            
+            FirebaseService.shared.UID = Auth.auth().currentUser?.uid ?? ""
+            
+        } else {
+            Auth.auth().signInAnonymously { authResult, _ in
+                // Anonymous authentification
+                guard let user = authResult?.user else { return }
+                FirebaseService.shared.UID = user.uid
+            }
+            
         }
     }
 
     // MARK: - Add photo to favorites in Firestore database
     func addFavoritePhoto(model: DataModel) {
-
-        authUser { [weak self] UID in
+        
+        if UID != "" {
             
-            self?.configureFB()
+            configureFB()
                 .collection("users").document(UID)
                 .collection("favorite_photos").document(model.id)
                 .setData([
@@ -56,11 +62,10 @@ final class FirebaseService {
 
     // MARK: - Get documents from Firestore
     func getFavoritePhotos() {
-        
-        authUser { [weak self] UID in
-            
+                
+        if UID != "" {
             // Get favorite photos ID grom firestore database
-            self?.configureFB()
+            configureFB()
                 .collection("users").document(UID)
                 .collection("favorite_photos")
                 .getDocuments { snapshot, error in
@@ -80,10 +85,10 @@ final class FirebaseService {
     }
     // MARK: - Check like on photo (search photo id in Firestore)
     func checkPhotoID(id: String, completion: @escaping (Bool) -> Void) {
-
-        authUser { [weak self] UID in
+        
+        if UID != "" {
             
-            self?.configureFB()
+            configureFB()
                 .collection("users").document(UID)
                 .collection("favorite_photos").document(id)
                 .getDocument { document, _ in
@@ -97,11 +102,14 @@ final class FirebaseService {
     }
     // MARK: - Remove photo from database
     func removeFavoritePhoto(id: String) {
-        authUser { [weak self] UID in
-            self?.configureFB()
+                
+        if UID != "" {
+            
+            configureFB()
                 .collection("users").document(UID)
                 .collection("favorite_photos").document(id)
                 .delete()
+            
         }
     }
 
