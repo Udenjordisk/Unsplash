@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1F7F87083E2DCAA60D4C19AC /* Pods_Unspash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FD50BE8B8E222DC07F56AD0 /* Pods_Unspash.framework */; };
 		500DDA492927FB7E0057FB75 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500DDA482927FB7E0057FB75 /* AppDelegate.swift */; };
 		500DDA4B2927FB7E0057FB75 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500DDA4A2927FB7E0057FB75 /* SceneDelegate.swift */; };
 		500DDA4D2927FB7E0057FB75 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500DDA4C2927FB7E0057FB75 /* TabBarController.swift */; };
@@ -26,6 +25,9 @@
 		505EE8342928046A005B0DC0 /* FavoriteRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505EE82F2928046A005B0DC0 /* FavoriteRouter.swift */; };
 		505EE8352928046A005B0DC0 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505EE8302928046A005B0DC0 /* FavoriteViewController.swift */; };
 		505EE8362928046A005B0DC0 /* FavoriteInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505EE8312928046A005B0DC0 /* FavoriteInteractor.swift */; };
+		5072902E292B154A004A93B2 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 5072902D292B154A004A93B2 /* SDWebImage */; };
+		50729031292B1AE6004A93B2 /* CHTCollectionViewWaterfallLayout in Frameworks */ = {isa = PBXBuildFile; productRef = 50729030292B1AE6004A93B2 /* CHTCollectionViewWaterfallLayout */; };
+		50729033292B1AE6004A93B2 /* CHTCollectionViewWaterfallLayoutObjC in Frameworks */ = {isa = PBXBuildFile; productRef = 50729032292B1AE6004A93B2 /* CHTCollectionViewWaterfallLayoutObjC */; };
 		5083C88C29290AF100DCFCCE /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5083C88B29290AF100DCFCCE /* CollectionView.swift */; };
 		5083C88E29290B2900DCFCCE /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5083C88D29290B2900DCFCCE /* SearchBar.swift */; };
 		5083C89429290ED800DCFCCE /* DetailContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5083C88F29290ED800DCFCCE /* DetailContract.swift */; };
@@ -51,7 +53,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0B99F9BBE1A5606E9E9BAD14 /* Pods-Unspash.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Unspash.release.xcconfig"; path = "Target Support Files/Pods-Unspash/Pods-Unspash.release.xcconfig"; sourceTree = "<group>"; };
 		500DDA452927FB7E0057FB75 /* Unspash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Unspash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		500DDA482927FB7E0057FB75 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		500DDA4A2927FB7E0057FB75 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -85,8 +86,6 @@
 		50BFE44B292822E800ABD125 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		50BFE44F2928258B00ABD125 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		50BFE45329282FCC00ABD125 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
-		9FD50BE8B8E222DC07F56AD0 /* Pods_Unspash.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Unspash.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E0F4AC0387C22358CCE3D1BC /* Pods-Unspash.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Unspash.debug.xcconfig"; path = "Target Support Files/Pods-Unspash/Pods-Unspash.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,10 +96,12 @@
 				50A165EB292968E000AC5AD4 /* FirebaseRemoteConfig in Frameworks */,
 				50A165E5292968E000AC5AD4 /* FirebaseDatabaseSwift in Frameworks */,
 				50A165E3292968E000AC5AD4 /* FirebaseDatabase in Frameworks */,
+				50729031292B1AE6004A93B2 /* CHTCollectionViewWaterfallLayout in Frameworks */,
+				50729033292B1AE6004A93B2 /* CHTCollectionViewWaterfallLayoutObjC in Frameworks */,
 				50A165ED292968E000AC5AD4 /* FirebaseStorage in Frameworks */,
+				5072902E292B154A004A93B2 /* SDWebImage in Frameworks */,
 				50A165DF292968E000AC5AD4 /* FirebaseAnalyticsSwift in Frameworks */,
 				50A165DD292968E000AC5AD4 /* FirebaseAnalytics in Frameworks */,
-				1F7F87083E2DCAA60D4C19AC /* Pods_Unspash.framework in Frameworks */,
 				50A165E1292968E000AC5AD4 /* FirebaseAuth in Frameworks */,
 				50A165E7292968E000AC5AD4 /* FirebaseFirestore in Frameworks */,
 				50A165E9292968E000AC5AD4 /* FirebaseFirestoreSwift in Frameworks */,
@@ -110,23 +111,11 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		133ACC3E96DC7545E9BE1466 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				E0F4AC0387C22358CCE3D1BC /* Pods-Unspash.debug.xcconfig */,
-				0B99F9BBE1A5606E9E9BAD14 /* Pods-Unspash.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 		500DDA3C2927FB7E0057FB75 = {
 			isa = PBXGroup;
 			children = (
-				50BFE45329282FCC00ABD125 /* .swiftlint.yml */,
 				500DDA472927FB7E0057FB75 /* Unspash */,
 				500DDA462927FB7E0057FB75 /* Products */,
-				133ACC3E96DC7545E9BE1466 /* Pods */,
-				86A6D48650A7C296996CFAC4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -141,6 +130,7 @@
 		500DDA472927FB7E0057FB75 /* Unspash */ = {
 			isa = PBXGroup;
 			children = (
+				50BFE45329282FCC00ABD125 /* .swiftlint.yml */,
 				50A165EE29296EB300AC5AD4 /* GoogleService-Info.plist */,
 				50BFE44A292822BC00ABD125 /* Service */,
 				505EE82029280289005B0DC0 /* Modules */,
@@ -240,14 +230,6 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
-		86A6D48650A7C296996CFAC4 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				9FD50BE8B8E222DC07F56AD0 /* Pods_Unspash.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -255,12 +237,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 500DDA592927FB800057FB75 /* Build configuration list for PBXNativeTarget "Unspash" */;
 			buildPhases = (
-				A0E4CDD84F15509E19555E33 /* [CP] Check Pods Manifest.lock */,
 				500DDA412927FB7E0057FB75 /* Sources */,
 				500DDA422927FB7E0057FB75 /* Frameworks */,
 				500DDA432927FB7E0057FB75 /* Resources */,
 				504887632928067200D4AB56 /* ShellScript */,
-				021DD63913F575F27262DB33 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -277,6 +257,9 @@
 				50A165E8292968E000AC5AD4 /* FirebaseFirestoreSwift */,
 				50A165EA292968E000AC5AD4 /* FirebaseRemoteConfig */,
 				50A165EC292968E000AC5AD4 /* FirebaseStorage */,
+				5072902D292B154A004A93B2 /* SDWebImage */,
+				50729030292B1AE6004A93B2 /* CHTCollectionViewWaterfallLayout */,
+				50729032292B1AE6004A93B2 /* CHTCollectionViewWaterfallLayoutObjC */,
 			);
 			productName = Unspash;
 			productReference = 500DDA452927FB7E0057FB75 /* Unspash.app */;
@@ -308,6 +291,8 @@
 			mainGroup = 500DDA3C2927FB7E0057FB75;
 			packageReferences = (
 				50A165DB292968E000AC5AD4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				5072902C292B154A004A93B2 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				5072902F292B1AE6004A93B2 /* XCRemoteSwiftPackageReference "CHTCollectionViewWaterfallLayout" */,
 			);
 			productRefGroup = 500DDA462927FB7E0057FB75 /* Products */;
 			projectDirPath = "";
@@ -333,26 +318,9 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		021DD63913F575F27262DB33 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Unspash/Pods-Unspash-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Unspash/Pods-Unspash-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Unspash/Pods-Unspash-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		504887632928067200D4AB56 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 8;
 			files = (
 			);
 			inputFileListPaths = (
@@ -363,31 +331,9 @@
 			);
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
 			shellScript = "SWIFT_LINT=/usr/local/bin/swiftlint\n\nif [[ -e \"${SWIFT_LINT}\" ]]; then\n    echo \"[I] Found SwiftLint at ${SWIFT_LINT}\"\nelse\n    echo \"[!] Local SwiftLint not found at ${SWIFT_LINT}\"\n    export SWIFT_LINT=${PWD}/Pods/SwiftLint/swiftlint\n    echo \"[I] Try to using SwiftLint from cocoapods at ${SWIFT_LINT}\"\nfi\n\nif [[ ! -e \"${SWIFT_LINT}\" ]]; then\n    echo \"[!] SwifLint is not installed.\"\n    echo \"[!] Expected location is '${SWIFT_LINT}'\"\n    echo \"[!] Please install it. eg. 'brew install swiftlint'\"\n    exit 1\nfi\n\necho \"[I] SwiftLint version: $(${SWIFT_LINT} version)\"\n\ngit ls-files --other --modified --exclude-standard -- \"*.swift\" | while read filename; do\n    $SWIFT_LINT lint --path \"$filename\";\n    $SWIFT_LINT autocorrect --path \"$filename\";\ndone\n";
-		};
-		A0E4CDD84F15509E19555E33 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Unspash-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -556,7 +502,6 @@
 		};
 		500DDA5A2927FB800057FB75 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E0F4AC0387C22358CCE3D1BC /* Pods-Unspash.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -584,7 +529,6 @@
 		};
 		500DDA5B2927FB800057FB75 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0B99F9BBE1A5606E9E9BAD14 /* Pods-Unspash.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -634,6 +578,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		5072902C292B154A004A93B2 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		5072902F292B1AE6004A93B2 /* XCRemoteSwiftPackageReference "CHTCollectionViewWaterfallLayout" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/chiahsien/CHTCollectionViewWaterfallLayout.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		50A165DB292968E000AC5AD4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -645,6 +605,21 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		5072902D292B154A004A93B2 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5072902C292B154A004A93B2 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+		50729030292B1AE6004A93B2 /* CHTCollectionViewWaterfallLayout */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5072902F292B1AE6004A93B2 /* XCRemoteSwiftPackageReference "CHTCollectionViewWaterfallLayout" */;
+			productName = CHTCollectionViewWaterfallLayout;
+		};
+		50729032292B1AE6004A93B2 /* CHTCollectionViewWaterfallLayoutObjC */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5072902F292B1AE6004A93B2 /* XCRemoteSwiftPackageReference "CHTCollectionViewWaterfallLayout" */;
+			productName = CHTCollectionViewWaterfallLayoutObjC;
+		};
 		50A165DC292968E000AC5AD4 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 50A165DB292968E000AC5AD4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

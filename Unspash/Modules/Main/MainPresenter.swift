@@ -9,7 +9,7 @@
 import UIKit
 import CHTCollectionViewWaterfallLayout
 
-class MainPresenter: ViewToPresenterMainProtocol {
+class MainPresenter: ViewToPresenterMainProtocol {    
 
     // MARK: Properties
     var view: PresenterToViewMainProtocol?
@@ -24,22 +24,19 @@ class MainPresenter: ViewToPresenterMainProtocol {
             searchController.definesPresentationContext = true
             return searchController
         }()
-
     // Collection view
     lazy var collectionView: UICollectionView = {
 
-        let waterfallLayout = CHTCollectionViewWaterfallLayout()
-        waterfallLayout.columnCount = Int(Constants.columnCount)
-        waterfallLayout.minimumColumnSpacing = Constants.spacing
-        // FIXME: Иногда слишком большое расстояние между элементами вертикально
-        // Это из-за рандомной высоты ячейки
-        waterfallLayout.minimumInteritemSpacing = Constants.spacing
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: waterfallLayout)
+        let layout = CHTCollectionViewWaterfallLayout()
+        layout.columnCount = Int(Constants.columnCount)
+        layout.minimumInteritemSpacing = Constants.spacing
+        
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(CollectionViewCell.self, forCellWithReuseIdentifier: CollectionViewCell.identifier)
 
         return collectionView
         }()
-
+    
    final func viewDidLoaded() {
          interactor?.getData(nil)
          interactor?.backgroundGetFavoritePhotos()

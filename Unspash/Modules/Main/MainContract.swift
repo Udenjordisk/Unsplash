@@ -22,7 +22,7 @@ protocol ViewToPresenterMainProtocol {
 
     var searchController: UISearchController { get set }
     var collectionView: UICollectionView { get set }
-
+    
     func viewDidLoaded()
     func searchBarDidSearch(_ searchResult: String)
     func presentPhoto(_ model: DataModel, view: UIViewController)

@@ -7,20 +7,20 @@
 //
 
 import UIKit
-import CHTCollectionViewWaterfallLayout
 import Firebase
+import CHTCollectionViewWaterfallLayout
 
 class MainViewController: UIViewController {
 
     // MARK: - Properties
     var presenter: ViewToPresenterMainProtocol?
+    
     lazy var models: [DataModel] = []
-    var timer: Timer?
+    
     weak var searchController: UISearchController?
     weak var collectionView: UICollectionView?
 
-    // Collection view properties
-
+    
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()

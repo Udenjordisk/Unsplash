@@ -47,7 +47,7 @@ class FavoriteViewController: UIViewController {
 }
 
 extension FavoriteViewController: PresenterToViewFavoriteProtocol {
-    // TODO: Implement View Output Methods
+    
 }
 
 
