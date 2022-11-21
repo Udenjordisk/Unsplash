@@ -49,12 +49,12 @@ final class FirebaseService {
                 .collection("favorite_photos").document(model.id)
                 .setData([
                     "id": model.id,
-                    "created_at": model.created_at,
+                    "created_at": model.created_at ?? "",
                     "url_small": model.urls.small,
                     "url_full": model.urls.full,
                     "user_name": model.user.name,
-                    "location_name": model.location?.name,
-                    "downloads": model.downloads,
+                    "location_name": model.location?.name ?? "",
+                    "downloads": model.downloads ?? 0,
                     "likes": model.likes
                 ])
         }

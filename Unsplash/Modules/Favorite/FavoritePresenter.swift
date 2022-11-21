@@ -26,7 +26,7 @@ class FavoritePresenter: ViewToPresenterFavoriteProtocol {
             FirebaseService.shared.removeFavoritePhoto(id: FavoritePhotoManager.shared.models[indexPath.row].id)
             
             //Remove from table view
-            let cell = FavoritePhotoManager.shared.models.remove(at: indexPath.row)
+            FavoritePhotoManager.shared.models.remove(at: indexPath.row)
             
             //Update favorite photos
             FirebaseService.shared.getFavoritePhotos()
