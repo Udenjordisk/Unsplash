@@ -23,8 +23,6 @@ final class DetailViewController: UIViewController {
     let authorLabel = DetailViews.shared.authorLabel
     let infoLabel = DetailViews.shared.infoLabel
     
-    var isLiked = false
-
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,11 +50,6 @@ extension DetailViewController: PresenterToViewDetailProtocol {
         self.authorLabel.text = author
         self.infoLabel.text = "Show additional info"
 
-    }
-
-    func isLikedChanged(isLiked: Bool) {
-        self.isLiked = isLiked
-        presenter?.invalidateIsLikedButton()
     }
 
 }

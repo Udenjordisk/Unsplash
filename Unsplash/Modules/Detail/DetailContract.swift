@@ -17,9 +17,6 @@ protocol PresenterToViewDetailProtocol {
     var infoLabel: UILabel { get }
     
     func showDetail(url: URL, author: String)
-    func isLikedChanged(isLiked: Bool)
-//    func invalidateIsLikedButton()
-
 }
 
 // MARK: View Input (View -> Presenter)

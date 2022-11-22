@@ -15,7 +15,6 @@ final class DetailPresenter: ViewToPresenterDetailProtocol {
     var interactor: PresenterToInteractorDetailProtocol?
     var router: PresenterToRouterDetailProtocol?
     
-    
     // MARK: View methods
     
     // Complete load
@@ -25,7 +24,7 @@ final class DetailPresenter: ViewToPresenterDetailProtocol {
         view?.showDetail(url: url, author: author)
     }
 
-    //
+    // MARK: - Like button methods
     func invalidateIsLikedButton() {
         
         guard let isLiked = interactor?.isLiked else { return }

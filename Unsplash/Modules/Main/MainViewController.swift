@@ -17,7 +17,8 @@ final class MainViewController: UIViewController {
         
     lazy var searchController = MainViews.shared.searchController
     lazy var collectionView = MainViews.shared.collectionView
-
+    
+    private let refreshControl = UIRefreshControl()
     
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
@@ -44,10 +45,22 @@ final class MainViewController: UIViewController {
         collectionView.frame = view.bounds
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.refreshControl = refreshControl
         view.addSubview(collectionView)
 
+        refreshControl.addTarget(self, action: #selector(refresh(_:)), for: .valueChanged)
+        
     }
-
+    
+    @objc private func refresh(_ sender: Any) {
+        // Fetch photo
+        presenter?.viewDidLoaded()
+        // End refreshing
+        refreshControl.endRefreshing()
+        // Reload data
+        collectionView.reloadData()
+    }
+    
 }
 
     // MARK: Presenter -> View methods
